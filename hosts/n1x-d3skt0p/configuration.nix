@@ -86,6 +86,8 @@
     xwayland.enable = true;
   };
 
+  programs.fish.enable = true;
+  
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];

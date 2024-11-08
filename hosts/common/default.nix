@@ -1,6 +1,12 @@
 # Common configuration for all hosts
 
-{ lib, inputs, outputs, ... }: {
+{ 
+  pkgs,
+  lib, 
+  inputs, 
+  outputs, 
+  ...
+}: {
   imports = [
     ./users
     inputs.home-manager.nixosModules.home-manager
@@ -51,4 +57,5 @@
       ((lib.filterAttrs (_: lib.isType "flake")) inputs);
     nixPath = [ "/etc/nix/path" ];
   };
+  users.defaultUserShell = pkgs.fish;
 }
