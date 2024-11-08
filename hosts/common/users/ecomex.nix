@@ -26,5 +26,5 @@
     packages = [inputs.home-manager.packages.${pkgs.system}.default];
   };
   home-manager.users.ecomex =
-    import ecomex/${config.networking.hostName}.nix;
+    import ../../../home/ecomex/${config.networking.hostName}.nix;
 }
