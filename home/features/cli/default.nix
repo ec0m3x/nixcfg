@@ -4,6 +4,8 @@
 }: {
   imports = [
     ./fish.nix
+    ./fzf.nix
+    ./neofetch.nix
   ];
 
   programs.zoxide = {
