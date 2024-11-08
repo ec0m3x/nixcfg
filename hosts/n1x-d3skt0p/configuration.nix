@@ -51,14 +51,6 @@
   # Configure console keymap
   console.keyMap = "de";
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.ecomex = {
-    isNormalUser = true;
-    initialPassword = "Geheim";
-    description = "ecomex";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
-  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
