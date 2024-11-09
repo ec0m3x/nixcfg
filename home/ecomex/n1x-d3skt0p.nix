@@ -1,6 +1,7 @@
 { config, ... }: { imports = [ 
-  ./home.nix 
   ../common
+  ./home.nix
+  ./dotfiles
   ../features/cli
   ../features/desktop
   ];
@@ -15,6 +16,7 @@
     desktop = {
       hyprland.enable = true;
       wayland.enable = true;
+      fonts.enable = true;
     };
   };
 }
