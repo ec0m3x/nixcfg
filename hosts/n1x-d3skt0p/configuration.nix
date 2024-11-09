@@ -90,11 +90,13 @@
   programs.fish.enable = true;
   
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [80];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
+	networking.nat.enable = true;
+  networking.nat.internalInterfaces = ["ve-+"];
+  networking.nat.externalInterface = "enp1s0";
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
