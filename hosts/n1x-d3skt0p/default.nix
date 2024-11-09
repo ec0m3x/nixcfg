@@ -37,5 +37,11 @@
 # networking.hostName = "nixos"; # Define your hostname.
 
 {
-  imports = [ ../common ./configuration.nix ];
+  imports = [ 
+    ../common
+    ./configuration.nix
+    ./services
+  ];
+
+  extraServices.podman.enable = true;
 }
