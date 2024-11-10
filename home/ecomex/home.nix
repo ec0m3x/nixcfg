@@ -74,4 +74,26 @@
       git_protocol = "ssh";
     };
   };
+  programs.zellij-ps = {
+    enable = true;
+    projectFolders = [
+      "${config.home.homeDirectory}/.config"
+      "${config.home.homeDirectory}/Projects"
+    ];
+    layout = ''
+      layout {
+          pane size=1 borderless=true {
+              plugin location="zellij:tab-bar"
+          }
+          pane size="70%" command="nvim"
+          pane split_direction="vertical" {
+              pane
+              pane command="unimatrix"
+          }
+          pane size=1 borderless=true {
+              plugin location="zellij:status-bar"
+          }
+      }
+    '';
+  };
 }

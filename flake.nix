@@ -52,7 +52,8 @@
     in {
       packages =
         forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
-      overlays = import ./overlays { inherit inputs; };
+      overlays = import ./overlays {inherit inputs;};
+      homeManagerModules = import ./modules/home-manager;
       nixosConfigurations = {
         n1x-d3skt0p = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };

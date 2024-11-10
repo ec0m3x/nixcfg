@@ -1,13 +1,15 @@
 {
   age = {
     secrets = {
-/*       secret1 = {
-        file = ../../secrets/secret1.age;
-      };
       ecomex-secrets = {
         file = ../../secrets/ecomex-secrets.age;
         owner = "ecomex";
-      }; */
+      };
+      tailscale-key = {
+        file = ../../secrets/tailscale-key.age;
+        owner = "ecomex";
+        path = "/home/ecomex/.tailscalekey";
+      };
     };
   };
 }

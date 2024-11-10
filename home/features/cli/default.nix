@@ -26,6 +26,7 @@
     coreutils
     fd
     htop
+    btop
     httpie
     jq
     procs

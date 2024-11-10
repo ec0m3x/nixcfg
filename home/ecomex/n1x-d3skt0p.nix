@@ -18,7 +18,7 @@
       wayland.enable = true;
       fonts.enable = true;
       blueman.enable = true;
-      nextcloud-client.enable = true;
+      nextcloud-client.enable = false;
     };
   };
 
