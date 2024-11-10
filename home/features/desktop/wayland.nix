@@ -219,7 +219,7 @@ in {
             format = "{}°C";
             tooltip = true;
             interval = 3600;
-            exec = "wttrbar --location Pockau-Lengefeld";
+            exec = "wttrbar --location Weikersheim";
             return-type = "json";
           };
           tray = {
@@ -233,7 +233,7 @@ in {
         };
       };
     };
-    
+
     home.packages = with pkgs; [
       dracula-theme
       grim
@@ -241,7 +241,6 @@ in {
       hyprpaper
       wofi
       xfce.thunar
-      networkmanagerapplet
       pavucontrol
       pamixer
       qt6.qtwayland
@@ -252,6 +251,7 @@ in {
       wl-clipboard
       wlogout
       wtype
+      wttrbar
       ydotool
     ];
 

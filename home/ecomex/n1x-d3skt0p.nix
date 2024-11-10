@@ -24,6 +24,17 @@
 
   home.packages = with pkgs; [
   vscode
+  zotero
+  obsidian
+  thunderbird
+  vlc
+  yt-dlp
+  obs-studio
+  spotify
+  musikcube
+  vesktop
+  bitwarden-desktop
+  skanlite
   brave
   ];
 
