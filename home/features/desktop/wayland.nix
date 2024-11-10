@@ -237,6 +237,9 @@ in {
     home.packages = with pkgs; [
       grim
       hyprlock
+      hyprpaper
+      wofi
+      xfce.thunar
       qt6.qtwayland
       slurp
       waypipe
