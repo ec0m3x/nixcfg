@@ -233,13 +233,17 @@ in {
         };
       };
     };
-
+    
     home.packages = with pkgs; [
+      dracula-theme
       grim
       hyprlock
       hyprpaper
       wofi
       xfce.thunar
+      networkmanagerapplet
+      pavucontrol
+      pamixer
       qt6.qtwayland
       slurp
       waypipe
@@ -250,5 +254,8 @@ in {
       wtype
       ydotool
     ];
+
+    services.dunst.enable = true;
+    services.playerctld.enable = true;
   };
 }

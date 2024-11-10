@@ -18,15 +18,25 @@ in {
 
         exec-once = [
           "waybar"
-          "hyprpaper"
           "hypridle"
           "wl-paste -p -t text --watch clipman store -P --histpath=\"~/.local/share/clipman-primary.json\""
         ];
 
         env = [
-          "XCURSOR_SIZE,32"
+          "XCURSOR_SIZE,24"
+          "NIXOS_OZONE_WL,1"
           "WLR_NO_HARDWARE_CURSORS,1"
           "GTK_THEME,Dracula"
+          "XDG_CURRENT_DESKTOP,Hyprland"
+          "XDG_SESSION_TYPE,wayland"
+          "XDG_SESSION_DESKTOP,Hyprland"
+          "GDK_BACKEND,wayland,x11,*"
+          "QT_QPA_PLATFORM,wayland;xcb"
+          "QT_AUTO_SCREEN_SCALE_FACTOR,1"
+          "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+          "CLUTTER_BACKEND,wayland"
+          "GSK_RENDERER,ngl"
+          "AQ_DRM_DEVICES,/dev/dri/card1"
         ];
 
         input = {
@@ -179,7 +189,7 @@ in {
 
         windowrulev2 = [
           "workspace 1,class:(Emacs)"
-          "workspace 3,opacity 1.0, class:(brave-browser)"
+          "workspace 3,opacity 1.0, class:(Brave-browser)"
           "workspace 4,class:(com.obsproject.Studio)"
         ];
       };

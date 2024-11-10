@@ -17,6 +17,8 @@
       hyprland.enable = true;
       wayland.enable = true;
       fonts.enable = true;
+      blueman.enable = true;
+      nextcloud-client.enable = true;
     };
   };
 
@@ -26,6 +28,7 @@
   ];
 
   wayland.windowManager.hyprland = {
+    enable = true;
     settings = {
       device = [
         {
@@ -38,17 +41,7 @@
         }
       ];
       monitor = [
-        "HDMI-A-3,3440x1440@100,0x0,1"
-
-      ];
-      workspace = [
-        "1, monitor:HDMI-A-3, default:true"
-        "2, monitor:HDMI-A-3"
-        "3, monitor:HDMI-A-3"
-        "4, monitor:HDMI-A-3"
-        "5, monitor:HDMI-A-3"
-        "6, monitor:HDMI-A-3"
-        "7, monitor:HDMI-A-3"
+        "HDMI-A-1,3440x1440@100,0x0,1"
       ];
     };
   };

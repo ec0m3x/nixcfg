@@ -8,6 +8,6 @@
 
   # Extra services
   extraServices.podman.enable = false;
-
+  extraServices.gaming.enable = true;
 
 }
