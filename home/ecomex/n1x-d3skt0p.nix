@@ -36,6 +36,8 @@
   bitwarden-desktop
   skanlite
   brave
+  n8n
+  cava
   ];
 
   wayland.windowManager.hyprland = {
@@ -53,6 +55,15 @@
       ];
       monitor = [
         "HDMI-A-1,3440x1440@100,0x0,1"
+      ];
+      workspace = [
+        "1, persistent:true"
+        "2, persistent:true"
+        "3, persistent:true"
+        "4, persistent:true"
+        "5, persistent:true"
+        "6, persistent:true"
+        "7, persistent:true"
       ];
     };
   };

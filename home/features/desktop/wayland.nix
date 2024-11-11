@@ -86,6 +86,7 @@ in {
         #clock,
         #battery,
         #pulseaudio,
+        #pulseaudio.microphone,
         #network,
         #workspaces,
         #tray,
@@ -186,6 +187,7 @@ in {
           modules-center = ["hyprland/window"];
           modules-right = [
             "tray"
+            "pulseaudio"
           ];
 
           "hyprland/window" = {
@@ -213,6 +215,9 @@ in {
               "2" = [];
               "3" = [];
               "4" = [];
+              "5" = [];
+              "6" = [];
+              "7" = [];
             };
           };
           "custom/weather" = {
@@ -229,6 +234,24 @@ in {
           clock = {
             format = " {:%R   %d/%m}";
             tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+          };
+          pulseaudio = {
+            "scroll-step" = 1;
+            "format" = "{icon} {volume}%";
+            "format-bluetooth" = "{icon} {volume}%";
+            "format-bluetooth-muted" = "󰸈";
+            "format-muted" = "󰸈";
+            "format-source" = " {volume}%";
+            "format-source-muted" = "";
+            "format-icons" = {
+              "headphone" = "";
+              "hands-free" = "";
+              "headset" = "";
+              "phone" = "";
+              "portable" = "";
+              "car" = "";
+              "default" = [ "" "" "" ];
+            };
           };
         };
       };
@@ -255,7 +278,7 @@ in {
       ydotool
     ];
 
-    services.dunst.enable = true;
+    services.dunst.enable = false;
     services.playerctld.enable = true;
   };
 }
