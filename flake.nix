@@ -20,6 +20,8 @@
 
     agenix.url = "github:ryantm/agenix";
 
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -34,6 +36,7 @@
   outputs = { 
     self,
     agenix,
+    hyprpanel,
     disko,
     dotfiles,
     home-manager,
@@ -61,6 +64,7 @@
             ./hosts/n1x-d3skt0p
             inputs.disko.nixosModules.disko
             agenix.nixosModules.default
+            {nixpkgs.overlays = [inputs.hyprpanel.overlay];}
           ];
         };
       };
@@ -68,7 +72,9 @@
         "ecomex@n1x-d3skt0p" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           extraSpecialArgs = { inherit inputs outputs; };
-          modules = [ ./home/ecomex/n1x-d3skt0p.nix ];
+          modules = [ 
+            ./home/ecomex/n1x-d3skt0p.nix
+          ];
         };
       };
     };

@@ -151,8 +151,8 @@ in {
 
         #pulseaudio {
             color: #89b4fa;
+            border-radius: 10px 10px 10px 10px;
             border-left: 0px;
-            border-right: 0px;
         }
 
         #pulseaudio.microphone {
@@ -262,6 +262,7 @@ in {
       grim
       hyprlock
       hyprpaper
+      hypridle
       wofi
       xfce.thunar
       pavucontrol
@@ -278,7 +279,7 @@ in {
       ydotool
     ];
 
-    services.dunst.enable = false;
+    services.dunst.enable = true;
     services.playerctld.enable = true;
   };
 }

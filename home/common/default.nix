@@ -1,4 +1,4 @@
-{ config, lib, outputs, pkgs, ... }: {
+{ config, lib, outputs, inputs, pkgs, ... }: {
   imports = builtins.attrValues outputs.homeManagerModules;
   nixpkgs = {
     # You can add overlays here
@@ -7,6 +7,7 @@
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.stable-packages
+      inputs.hyprpanel.overlay
 
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
