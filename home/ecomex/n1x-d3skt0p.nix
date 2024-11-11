@@ -36,7 +36,6 @@
   bitwarden-desktop
   skanlite
   brave
-  n8n
   cava
   ];
 
