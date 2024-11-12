@@ -38,7 +38,7 @@ in {
 
       fonts = {
         sizes = {
-          terminal = 14;
+          terminal = 12;
           applications = 12;
           popups = 12;
         };
@@ -57,6 +57,13 @@ in {
           package = pkgs.noto-fonts-emoji;
           name = "Noto Color Emoji";
         };
+      };
+    };
+    gtk = {
+      enable = true;
+      iconTheme = {
+        name = "kora";
+        package = pkgs.kora-icon-theme;
       };
     };
   };

@@ -4,6 +4,7 @@
 }: {
   imports = [
     ./fish.nix
+    ./foot.nix
     ./fzf.nix
     ./neofetch.nix
   ];
@@ -34,5 +35,6 @@
     tldr
     zip
     unzip
+    nerdfetch
   ];
 }

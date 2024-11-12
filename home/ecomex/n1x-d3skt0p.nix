@@ -13,8 +13,12 @@
       fzf.enable = true;
       neofetch.enable = true;
     };
+    terminals = {
+      foot.enable = true;
+    };
     desktop = {
       hyprland.enable = true;
+      hypridle.enable = true;
       wayland.enable = true;
       fonts.enable = true;
       blueman.enable = true;

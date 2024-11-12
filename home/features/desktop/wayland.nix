@@ -11,7 +11,7 @@ in {
 
   config = mkIf cfg.enable {
     programs.waybar = {
-      systemd.enable = true;
+      systemd.enable = false;
       enable = true;
       style = ''
         @define-color background-darker rgba(30, 31, 41, 230);
@@ -261,9 +261,6 @@ in {
     home.packages = with pkgs; [
       dracula-theme
       grim
-      hyprlock
-      hyprpaper
-      hypridle
       wofi
       xfce.thunar
       pavucontrol

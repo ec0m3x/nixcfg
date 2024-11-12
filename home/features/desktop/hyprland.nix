@@ -17,6 +17,7 @@ in {
         };
 
         exec-once = [
+          "waybar"
           "wl-paste -p -t text --watch clipman store -P --histpath=\"~/.local/share/clipman-primary.json\""
         ];
 
@@ -135,9 +136,9 @@ in {
         "$mainMod" = "SUPER";
 
         bind = [
-          "$mainMod, return, exec, kitty -e zellij-ps"
-          "$mainMod, t, exec, kitty -e fish -c 'neofetch; exec fish'"
-          "$mainMod SHIFT, e, exec, kitty -e zellij_nvim"
+          "$mainMod, return, exec, foot -e zellij-ps"
+          "$mainMod, t, exec, foot -e fish -c 'neofetch; exec fish'"
+          "$mainMod SHIFT, e, exec, foot -e zellij_nvim"
           "$mainMod, o, exec, thunar"
           "$mainMod, Escape, exec, wlogout -p layer-shell"
           "$mainMod, Space, togglefloating"
