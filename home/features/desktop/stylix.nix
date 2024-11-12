@@ -19,13 +19,14 @@ in {
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       google-fonts
+      wallpapers
     ];
 
     stylix = {
       enable = true;
       autoEnable = true;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
-      image = "${pkgs.wallpapers}/share/wallpapers/spill.jpg";
+      image = "${pkgs.wallpapers}/share/wallpapers/windows-error.jpg";
 
 
 
