@@ -17,15 +17,12 @@ in {
         };
 
         exec-once = [
-          "waybar"
           "wl-paste -p -t text --watch clipman store -P --histpath=\"~/.local/share/clipman-primary.json\""
         ];
 
         env = [
-          "XCURSOR_SIZE,24"
           "NIXOS_OZONE_WL,1"
           "WLR_NO_HARDWARE_CURSORS,1"
-          "GTK_THEME,Dracula"
           "XDG_CURRENT_DESKTOP,Hyprland"
           "XDG_SESSION_TYPE,wayland"
           "XDG_SESSION_DESKTOP,Hyprland"

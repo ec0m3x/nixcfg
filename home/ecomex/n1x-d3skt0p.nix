@@ -19,6 +19,7 @@
       fonts.enable = true;
       blueman.enable = true;
       nextcloud-client.enable = false;
+      stylix.enable = true;
     };
   };
 

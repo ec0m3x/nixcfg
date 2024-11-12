@@ -1,14 +1,7 @@
 {
-  inputs,
-  ...
-}:
-{
   imports = [
     ./bat.nix
+    ./nvim.nix
+    ./hyprlock.nix
   ];
-  
-  home.file.".config/nvim" = {
-    source = "${inputs.dotfiles}/nvim";
-    recursive = true;
-  };
 }

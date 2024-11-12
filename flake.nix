@@ -20,7 +20,7 @@
 
     agenix.url = "github:ryantm/agenix";
 
-    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+    stylix.url = "github:danth/stylix";
 
     disko = {
       url = "github:nix-community/disko";
@@ -36,7 +36,7 @@
   outputs = { 
     self,
     agenix,
-    hyprpanel,
+    stylix,
     disko,
     dotfiles,
     home-manager,
@@ -64,7 +64,6 @@
             ./hosts/n1x-d3skt0p
             inputs.disko.nixosModules.disko
             agenix.nixosModules.default
-            {nixpkgs.overlays = [inputs.hyprpanel.overlay];}
           ];
         };
       };

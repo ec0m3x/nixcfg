@@ -11,6 +11,7 @@ in {
 
   config = mkIf cfg.enable {
     programs.waybar = {
+      systemd.enable = true;
       enable = true;
       style = ''
         @define-color background-darker rgba(30, 31, 41, 230);
