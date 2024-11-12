@@ -33,5 +33,6 @@
     ripgrep
     tldr
     zip
+    unzip
   ];
 }

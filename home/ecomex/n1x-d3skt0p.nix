@@ -38,6 +38,7 @@
   skanlite
   brave
   cava
+  wallpapers
   ];
 
   wayland.windowManager.hyprland = {

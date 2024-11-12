@@ -13,7 +13,7 @@ in {
       enable = true;
       enableFishIntegration = true;
 
-      colors = {
+      colors = lib.mkForce {
         "fg" = "#f8f8f2";
         "bg" = "#282a36";
         "hl" = "#bd93f9";

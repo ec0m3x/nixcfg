@@ -23,8 +23,10 @@ in {
 
     stylix = {
       enable = true;
-      autoEnable = false;
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+      autoEnable = true;
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
+      image = "${pkgs.wallpapers}/share/wallpapers/spill.jpg";
+
 
 
       cursor = {
