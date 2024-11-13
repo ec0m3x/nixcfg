@@ -1,7 +1,5 @@
 {
   imports = [
-    #./echo.nix
-    #./nginx.nix
-    #./httpd.nix
+    ./openwebui.nix
   ];
 }

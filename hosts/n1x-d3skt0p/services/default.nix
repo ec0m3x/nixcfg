@@ -2,5 +2,6 @@
   imports = [
     ./hardware
     ./containers
+    ./ollama
   ];
 }
