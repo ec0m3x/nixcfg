@@ -66,6 +66,14 @@
             agenix.nixosModules.default
           ];
         };
+        n1x-hs-1 = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [ 
+            ./hosts/n1x-hs-1
+            inputs.disko.nixosModules.disko
+            agenix.nixosModules.default
+          ];
+        };
       };
       homeConfigurations = {
         "ecomex@n1x-d3skt0p" = home-manager.lib.homeManagerConfiguration {

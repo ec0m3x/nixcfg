@@ -1,6 +1,7 @@
 {
   imports = [ 
     ../common
+    ./cachix
     ./configuration.nix
     ./services
     ./secrets.nix
