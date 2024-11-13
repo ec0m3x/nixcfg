@@ -21,7 +21,7 @@
       "qemu-libvirtd"
     ];
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJR86g7+g3l7w1pLd40J/NcStNRNDIOnOXFYl775ySUQ ecomex@n1x-d3skt0p"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJR86g7+g3l7w1pLd40J/NcStNRNDIOnOXFYl775ySUQ ecomex@n1x-hd-1"
     ];
     packages = [inputs.home-manager.packages.${pkgs.system}.default];
   };

@@ -58,10 +58,10 @@
       overlays = import ./overlays {inherit inputs;};
       homeManagerModules = import ./modules/home-manager;
       nixosConfigurations = {
-        n1x-d3skt0p = nixpkgs.lib.nixosSystem {
+        n1x-hd-1 = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [ 
-            ./hosts/n1x-d3skt0p
+            ./hosts/n1x-hd-1
             inputs.disko.nixosModules.disko
             agenix.nixosModules.default
           ];
@@ -74,13 +74,21 @@
             agenix.nixosModules.default
           ];
         };
+        n1x-cs-1 = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [ 
+            ./hosts/n1x-cs-1
+            inputs.disko.nixosModules.disko
+            agenix.nixosModules.default
+          ];
+        };
       };
       homeConfigurations = {
-        "ecomex@n1x-d3skt0p" = home-manager.lib.homeManagerConfiguration {
+        "ecomex@n1x-hd-1" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [ 
-            ./home/ecomex/n1x-d3skt0p.nix
+            ./home/ecomex/n1x-hd-1.nix
           ];
         };
       };
