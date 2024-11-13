@@ -7,7 +7,8 @@
   ];
 
   # Extra services
-  extraServices.podman.enable = false;
+  extraServices.podman.enable = true;
   extraServices.gaming.enable = true;
+  extraServices.ollama.enable = true;
 
 }
