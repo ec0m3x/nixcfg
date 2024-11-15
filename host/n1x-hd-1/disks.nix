@@ -23,34 +23,37 @@ in
       # 1TB root/boot drive. Configured with:
       # - A FAT32 ESP partition for systemd-boot
       # - A LUKS container which containers multiple btrfs subvolumes for nixos install
-      nvme0 = {
-        device = builtins.elemAt disks 0;
+      nvme0n1 = {
         type = "disk";
+        device = builtins.elemAt disks 0;
         content = {
           type = "gpt";
           partitions = {
             ESP = {
-              start = "0%";
-              end = "512M";
+              label = "boot";
+              name = "ESP";
+              size = "512M";
               type = "EF00";
               content = {
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
+                mountOptions = [
+                  "defaults"
+                ];
               };
             };
             luks = {
-              start = "512M";
-              end = "100%";
-              type = "8309";
+              size = "100%";
+              label = "luks";
               content = {
                 type = "luks";
-                name = "${cryptroot}";
-
-                settings = {
-                  allowDiscards = true;
-                };
-
+                name = "cryptroot";
+                extraOpenArgs = [
+                  "--allow-discards"
+                  "--perf-no_read_workqueue"
+                  "--perf-no_write_workqueue"
+                ];
                 content = {
                   type = "btrfs";
                   # Override existing partition
@@ -94,7 +97,7 @@ in
               end = "100%";
               content = {
                 type = "luks";
-                name = "${cryptdata}";
+                name = "cryptdata";
 
                 settings = {
                   allowDiscards = true;
