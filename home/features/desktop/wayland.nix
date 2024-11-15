@@ -88,6 +88,7 @@ in {
         #battery,
         #pulseaudio,
         #pulseaudio.microphone,
+        #idle_inhibitor,
         #network,
         #workspaces,
         #tray,
@@ -152,7 +153,7 @@ in {
 
         #pulseaudio {
             color: #89b4fa;
-            border-radius: 10px 10px 10px 10px;
+            border-radius: 10px 0px 0px 10px;
             border-left: 0px;
         }
 
@@ -160,6 +161,11 @@ in {
             color: #cba6f7;
             border-left: 0px;
             border-right: 0px;
+        }
+        #idle_inhibitor {
+            color: #89b4fa;
+            border-radius: 0px 10px 10px 0px;
+            border-left: 0px;
         }
 
         #battery {
@@ -189,6 +195,7 @@ in {
           modules-right = [
             "tray"
             "pulseaudio"
+            "idle_inhibitor"
           ];
 
           "hyprland/window" = {
@@ -252,6 +259,13 @@ in {
               "portable" = "";
               "car" = "";
               "default" = [ "" "" "" ];
+            };
+          };
+          "idle_inhibitor" = {
+            format = "{icon}";
+            format-icons = {
+              activated = "󰅶";
+              deactivated = "󰾪";
             };
           };
         };

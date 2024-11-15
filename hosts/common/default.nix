@@ -7,9 +7,10 @@
   ...
 }: {
   imports = [
-    ./extraServices
-    ./globalServices
-    ./users
+    ./users/ecomex
+    ./services/extraServices
+    ./base
+
     inputs.home-manager.nixosModules.home-manager
   ];
   home-manager = {

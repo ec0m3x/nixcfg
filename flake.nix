@@ -1,96 +1,103 @@
 {
-  description = ''
-    For questions just DM me on X: https://twitter.com/@m3tam3re
-    There is also some NIXOS content on my YT channel: https://www.youtube.com/@m3tam3re
-
-    One of the best ways to learn NIXOS is to read other peoples configurations. I have personally learned a lot from Gabriel Fontes configs:
-    https://github.com/Misterio77/nix-starter-configs
-    https://github.com/Misterio77/nix-config
-
-    Please also check out the starter configs mentioned above.
-  '';
+  description = "3c0m3x's nixos configuration";
 
   inputs = {
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    master.url = "github:nixos/nixpkgs/master";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     agenix.url = "github:ryantm/agenix";
+    agenix.inputs.nixpkgs.follows = "unstable";
 
-    stylix.url = "github:danth/stylix";
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "unstable";
 
-    disko = {
-      url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "unstable";
 
-    dotfiles = {
-      url = "git+https://github.com/ec0m3x/dotfiles.git";
-      flake = false;
-    };
+    lanzaboote.url = "github:nix-community/lanzaboote";
+    lanzaboote.inputs.nixpkgs.follows = "unstable";
+
+    vscode-server.url = "github:nix-community/nixos-vscode-server";
+    vscode-server.inputs.nixpkgs.follows = "unstable";
   };
 
-  outputs = { 
-    self,
-    agenix,
-    stylix,
-    disko,
-    dotfiles,
-    home-manager,
-    nixpkgs,
-     ...
-  } @ inputs: let
+  outputs =
+    {
+      self,
+      nixpkgs,
+      unstable,
+      ...
+    }@inputs:
+    let
       inherit (self) outputs;
-      systems = [
-        "aarch64-linux"
-        "i686-linux"
-        "x86_64-linux"
-        "aarch64-darwin"
-        "x86_64-darwin"
-      ];
-      forAllSystems = nixpkgs.lib.genAttrs systems;
-    in {
-      packages =
-        forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
-      overlays = import ./overlays {inherit inputs;};
-      homeManagerModules = import ./modules/home-manager;
-      nixosConfigurations = {
-        n1x-hd-1 = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
-          modules = [ 
-            ./hosts/n1x-hd-1
-            inputs.disko.nixosModules.disko
-            agenix.nixosModules.default
-          ];
-        };
-        n1x-hs-1 = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
-          modules = [ 
-            ./hosts/n1x-hs-1
-            inputs.disko.nixosModules.disko
-            agenix.nixosModules.default
-          ];
-        };
-        n1x-cs-1 = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
-          modules = [ 
-            ./hosts/n1x-cs-1
-            inputs.disko.nixosModules.disko
-            agenix.nixosModules.default
-          ];
-        };
+      stateVersion = "24.05";
+      username = "ecomex";
+
+      libx = import ./lib {
+        inherit
+          self
+          inputs
+          outputs
+          stateVersion
+          username
+          ;
       };
+    in
+    {
+      # nix build .#homeConfigurations."ecomex@n1x-hd-1".activationPackage
       homeConfigurations = {
-        "ecomex@n1x-hd-1" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages."x86_64-linux";
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [ 
-            ./home/ecomex/n1x-hd-1.nix
-          ];
+        # Desktop machines
+        "${username}@n1x-hd-1" = libx.mkHome {
+          hostname = "n1x-hd-1";
+          desktop = "hyprland";
+        };
+        # Headless machines
+        "${username}@n1x-hs-1" = libx.mkHome { hostname = "n1x-hs-1"; };
+        "${username}@n1x-cs-1" = libx.mkHome { hostname = "n1x-cs-1"; };
+      };
+
+      # nix build .#nixosConfigurations.freyja.config.system.build.toplevel
+      nixosConfigurations = {
+        # Desktop machines
+        n1x-hd-1 = libx.mkHost {
+          hostname = "n1x-hd-1";
+          desktop = "hyprland";
+        };
+        # Headless machines
+        n1x-hs-1 = libx.mkHost {
+          hostname = "n1x-hs-1";
+          pkgsInput = nixpkgs;
+        };
+        n1x-cs-1 = libx.mkHost {
+          hostname = "n1x-cs-1";
+          pkgsInput = nixpkgs;
         };
       };
+
+      # Custom packages; acessible via 'nix build', 'nix shell', etc
+      packages = libx.forAllSystems (
+        system:
+        let
+          pkgs = unstable.legacyPackages.${system};
+        in
+        import ./pkgs { inherit pkgs; }
+      );
+
+      # Custom overlays
+      overlays = import ./overlays { inherit inputs; };
+
+      # Devshell for bootstrapping
+      # Accessible via 'nix develop' or 'nix-shell' (legacy)
+      devShells = libx.forAllSystems (
+        system:
+        let
+          pkgs = unstable.legacyPackages.${system};
+        in
+        import ./shell.nix { inherit pkgs; }
+      );
+
+      formatter = libx.forAllSystems (system: self.packages.${system}.nixfmt-plus);
     };
 }

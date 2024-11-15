@@ -1,5 +1,9 @@
-{pkgs, ...}: {
-  # Define your custom packages here
-  zellij-ps = pkgs.callPackage ./zellij-ps {};
-  wallpapers = pkgs.callPackage ./wallpapers {};
+# Custom packages, that can be defined similarly to ones from nixpkgs
+# Build them using 'nix build .#example' or (legacy) 'nix-build -A example'
+
+{
+  pkgs ? (import ../nixpkgs.nix) { },
+}:
+{
+  wallpapers = pkgs.callPackage ./wallpapers { };
 }

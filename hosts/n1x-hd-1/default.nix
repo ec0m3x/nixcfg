@@ -3,7 +3,7 @@
     ../common
     ./cachix
     ./configuration.nix
-    ./services
+    ./localservices
     ./secrets.nix
   ];
 
@@ -11,5 +11,6 @@
   extraServices.podman.enable = true;
   extraServices.gaming.enable = true;
   extraServices.ollama.enable = true;
+  extraServices.libvirt.enable = true;
 
 }

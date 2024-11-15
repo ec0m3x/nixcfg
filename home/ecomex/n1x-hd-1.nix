@@ -19,6 +19,7 @@
     desktop = {
       hyprland.enable = true;
       hypridle.enable = true;
+      hyprlock.enable = true;
       wayland.enable = true;
       fonts.enable = true;
       blueman.enable = true;
@@ -31,6 +32,7 @@
   vscode
   zotero
   obsidian
+  firefox
   thunderbird
   vlc
   yt-dlp
