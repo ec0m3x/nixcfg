@@ -1,9 +1,5 @@
 {
   lib,
-  disks ? [
-    "/dev/nvme0n1"
-    "/dev/sdb"
-  ],
   ...
 }:
 let
@@ -23,7 +19,7 @@ in
       # - A LUKS container which containers multiple btrfs subvolumes for nixos install
       nvme0n1 = {
         type = "disk";
-        device = builtins.elemAt disks 0;
+        device = "/dev/nvme0n1";
         content = {
           type = "gpt";
           partitions = {
@@ -75,38 +71,6 @@ in
                     };
                     "@snapshots" = {
                       mountpoint = "/.snapshots";
-                      mountOptions = defaultBtrfsOpts;
-                    };
-                  };
-                };
-              };
-            };
-          };
-        };
-      };
-      sda = {
-        device = builtins.elemAt disks 1;
-        type = "disk";
-        content = {
-          type = "gpt";
-          partitions = {
-            luks = {
-              size = "100%";
-              label = "luks-data";
-              content = {
-                type = "luks";
-                name = "cryptdata";
-
-                settings = {
-                  allowDiscards = true;
-                };
-
-                content = {
-                  type = "btrfs";
-                  extraArgs = [ "-f" ];
-                  subvolumes = {
-                    "@" = {
-                      mountpoint = "/home/ecomex/data";
                       mountOptions = defaultBtrfsOpts;
                     };
                   };
