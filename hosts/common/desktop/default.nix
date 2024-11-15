@@ -3,7 +3,11 @@
   pkgs,
   self,
   ...
-}: {
+}:
+let
+  theme = import "${self}/lib/theme" { inherit pkgs; };
+in 
+{
   imports = [
     (./. + "/${desktop}.nix")
     ../services/pipewire.nix

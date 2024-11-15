@@ -29,6 +29,7 @@
         username = user;
       };
       modules = [
+        inputs.catppuccin.homeManagerModules.catppuccin
         ../home
       ];
     };

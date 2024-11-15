@@ -1,30 +1,38 @@
+{ pkgs, config, ... }:
+let
+  ifExists = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
+in
 {
-  config,
-  pkgs,
-  inputs,
-  ...
-}: {
   users.users.ecomex = {
-    initialHashedPassword = "$y$j9T$DCsAZWNDXgusEdpMj5Kii.$ET9fwRimvENqxjcsYbLJt5cHsJPR1T1Eoq0lcqwJP1B";
     isNormalUser = true;
-    description = "ecomex";
-    extraGroups = [
-      "wheel"
-      "networkmanager"
-      "libvirtd"
-      "flatpak"
-      "audio"
-      "video"
-      "plugdev"
-      "input"
-      "kvm"
-      "qemu-libvirtd"
-    ];
+    initialHashedPassword = "$y$j9T$DCsAZWNDXgusEdpMj5Kii.$ET9fwRimvENqxjcsYbLJt5cHsJPR1T1Eoq0lcqwJP1B";
+    shell = pkgs.fish;
+    extraGroups =
+      [
+        "audio"
+        "networkmanager"
+        "users"
+        "video"
+        "wheel"
+      ]
+      ++ ifExists [
+        "docker"
+        "plugdev"
+        "render"
+        "lxd"
+        "kvm"
+        "libvirt"
+      ];
+
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJR86g7+g3l7w1pLd40J/NcStNRNDIOnOXFYl775ySUQ ecomex@n1x-hd-1"
     ];
-    packages = [inputs.home-manager.packages.${pkgs.system}.default];
+
+    packages = [ pkgs.home-manager ];
   };
-  home-manager.users.ecomex =
-    import ../../../home/ecomex/${config.networking.hostName}.nix;
+
+  # This is a workaround for not seemingly being able to set $EDITOR in home-manager
+  environment.sessionVariables = {
+    EDITOR = "nano";
+  };
 }
