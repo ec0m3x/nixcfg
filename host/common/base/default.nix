@@ -11,12 +11,18 @@
     ./hardware.nix
     ./locale.nix
     ./nh.nix
+    ./zramswap.nix
 
     ../services/tailscale.nix
     ../services/openssh.nix
   ];
 
   environment.systemPackages = (import ./packages.nix { inherit pkgs; }).basePackages;
+
+  networking = {
+    hostName = hostname;
+    useDHCP = lib.mkDefault true;
+  };
 
   programs.fish.enable = true;
 
