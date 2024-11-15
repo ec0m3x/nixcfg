@@ -1,5 +1,15 @@
-{ ... }: {
+{ pkgs, desktop, ... }:
+{
+  hardware.bluetooth = {
+    enable = true;
+    package = pkgs.bluez;
+    settings = {
+      General = {
+        Experimental = true;
+        KernelExperimental = true;
+      };
+    };
+  };
 
-  hardware.bluetooth.enable = true;
-  hardware.enableAllFirmware = true;
+  environment.systemPackages = if (builtins.isString desktop) then [ pkgs.blueman ] else [ ];
 }

@@ -1,10 +1,6 @@
 {
   imports = [ 
-    ../common
-    ./cachix
-    ./configuration.nix
-    ./localservices
-    ./secrets.nix
+    ../common/services/extraServices
   ];
 
   # Extra services
@@ -12,5 +8,6 @@
   extraServices.gaming.enable = true;
   extraServices.ollama.enable = true;
   extraServices.libvirt.enable = true;
+  extraServices.cachix.enable = true;
 
 }

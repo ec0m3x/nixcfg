@@ -1,5 +1,6 @@
 {
   imports = [
+    ./cachix
     ./podman.nix
     ./gaming.nix
     ./ollama.nix
