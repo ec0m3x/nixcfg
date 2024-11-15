@@ -31,7 +31,7 @@ in
           partitions = {
             ESP = {
               start = "0%";
-              end = "512MiB";
+              end = "512M";
               type = "EF00";
               content = {
                 type = "filesystem";
@@ -40,8 +40,9 @@ in
               };
             };
             luks = {
-              start = "512MiB";
+              start = "512M";
               end = "100%";
+              type = "8309";
               content = {
                 type = "luks";
                 name = "${cryptroot}";
