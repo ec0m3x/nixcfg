@@ -7,8 +7,6 @@
   ...
 }:
 let
-  cryptroot = "cryptroot";
-  cryptdata = "cryptdata";
   defaultBtrfsOpts = [
     "defaults"
     "compress=zstd:1"
@@ -93,8 +91,8 @@ in
           type = "gpt";
           partitions = {
             luks = {
-              start = "0%";
-              end = "100%";
+              size = "100%";
+              label = "luks-data";
               content = {
                 type = "luks";
                 name = "cryptdata";
