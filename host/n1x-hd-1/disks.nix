@@ -2,11 +2,13 @@
   lib,
   disks ? [
     "/dev/nvme0n1"
+    "/dev/sdb"
   ],
   ...
 }:
 let
   cryptroot = "cryptroot";
+  cryptdata = "cryptdata";
   defaultBtrfsOpts = [
     "defaults"
     "compress=zstd:1"
@@ -71,6 +73,38 @@ in
                     };
                     "@snapshots" = {
                       mountpoint = "/.snapshots";
+                      mountOptions = defaultBtrfsOpts;
+                    };
+                  };
+                };
+              };
+            };
+          };
+        };
+      };
+      sda = {
+        device = builtins.elemAt disks 1;
+        type = "disk";
+        content = {
+          type = "gpt";
+          partitions = {
+            luks = {
+              start = "0%";
+              end = "100%";
+              content = {
+                type = "luks";
+                name = "${cryptdata}";
+
+                settings = {
+                  allowDiscards = true;
+                };
+
+                content = {
+                  type = "btrfs";
+                  extraArgs = [ "-f" ];
+                  subvolumes = {
+                    "@" = {
+                      mountpoint = "/home/ecomex/data";
                       mountOptions = defaultBtrfsOpts;
                     };
                   };
