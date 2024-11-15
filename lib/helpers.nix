@@ -55,7 +55,7 @@
       };
       modules = [
         inputs.agenix.nixosModules.default
-        inputs.lanzaboote.nixosModules.lanzaboote
+        #inputs.lanzaboote.nixosModules.lanzaboote
         ../host
       ];
     };
