@@ -1,66 +1,77 @@
 {
+  lib,
+  disks ? [
+    "/dev/nvme0n1"
+  ],
+  ...
+}:
+let
+  cryptroot = "cryptroot";
+  defaultBtrfsOpts = [
+    "defaults"
+    "compress=zstd:1"
+    "ssd"
+    "noatime"
+    "nodiratime"
+  ];
+in
+{
   disko.devices = {
     disk = {
-      nvme0n1 = {
+      # 1TB root/boot drive. Configured with:
+      # - A FAT32 ESP partition for systemd-boot
+      # - A LUKS container which containers multiple btrfs subvolumes for nixos install
+      nvme0 = {
+        device = builtins.elemAt disks 0;
         type = "disk";
-        device = "/dev/nvme0n1";
         content = {
           type = "gpt";
           partitions = {
             ESP = {
-              label = "boot";
-              name = "ESP";
-              size = "512M";
+              start = "0%";
+              end = "512MiB";
               type = "EF00";
               content = {
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
-                mountOptions = [
-                  "defaults"
-                ];
               };
             };
             luks = {
-              size = "100%";
-              label = "luks";
+              start = "512MiB";
+              end = "100%";
               content = {
                 type = "luks";
-                name = "cryptroot";
-                extraOpenArgs = [
-                  "--allow-discards"
-                  "--perf-no_read_workqueue"
-                  "--perf-no_write_workqueue"
-                ];
-                # https://0pointer.net/blog/unlocking-luks2-volumes-with-tpm2-fido2-pkcs11-security-hardware-on-systemd-248.html
-                settings = {crypttabExtraOpts = ["fido2-device=auto" "token-timeout=10"];};
+                name = "${cryptroot}";
+
+                settings = {
+                  allowDiscards = true;
+                };
+
                 content = {
                   type = "btrfs";
-                  extraArgs = ["-L" "nixos" "-f"];
+                  # Override existing partition
+                  extraArgs = [ "-f" ];
                   subvolumes = {
-                    "/root" = {
+                    "@" = {
                       mountpoint = "/";
-                      mountOptions = ["subvol=root" "compress=zstd" "noatime"];
+                      mountOptions = defaultBtrfsOpts;
                     };
-                    "/home" = {
-                      mountpoint = "/home";
-                      mountOptions = ["subvol=home" "compress=zstd" "noatime"];
-                    };
-                    "/nix" = {
+                    "@nix" = {
                       mountpoint = "/nix";
-                      mountOptions = ["subvol=nix" "compress=zstd" "noatime"];
+                      mountOptions = defaultBtrfsOpts;
                     };
-                    "/persist" = {
-                      mountpoint = "/persist";
-                      mountOptions = ["subvol=persist" "compress=zstd" "noatime"];
+                    "@home" = {
+                      mountpoint = "/home";
+                      mountOptions = defaultBtrfsOpts;
                     };
-                    "/log" = {
-                      mountpoint = "/var/log";
-                      mountOptions = ["subvol=log" "compress=zstd" "noatime"];
+                    "@var" = {
+                      mountpoint = "/var";
+                      mountOptions = defaultBtrfsOpts;
                     };
-                    "/swap" = {
-                      mountpoint = "/swap";
-                      swap.swapfile.size = "64G";
+                    "@snapshots" = {
+                      mountpoint = "/.snapshots";
+                      mountOptions = defaultBtrfsOpts;
                     };
                   };
                 };
@@ -71,7 +82,4 @@
       };
     };
   };
-
-  fileSystems."/persist".neededForBoot = true;
-  fileSystems."/var/log".neededForBoot = true;
 }

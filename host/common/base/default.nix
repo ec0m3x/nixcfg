@@ -1,9 +1,13 @@
 {
+  hostname,
   pkgs,
   lib,
+  username,
   ...
-}: {
+}:
+{
   imports = [
+    ./boot.nix
     ./hardware.nix
     ./locale.nix
     ./nh.nix

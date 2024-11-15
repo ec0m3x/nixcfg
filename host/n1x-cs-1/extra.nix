@@ -1,10 +1,9 @@
 {
   imports = [ 
-    ../common
-    ./configuration.nix
-    ./localservices
+    ../common/services/extraServices
   ];
 
   # Extra services
   extraServices.podman.enable = true;
+
 }

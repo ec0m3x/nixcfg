@@ -1,4 +1,8 @@
 {
+  lib,
+  ...
+}:
+{
   disko.devices = {
     disk = {
       nixos = {

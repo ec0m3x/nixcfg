@@ -3,7 +3,7 @@
 {
   imports = [
     inputs.disko.nixosModules.disko
-    import ./disks.nix
+    (import ./disks.nix { inherit lib; })
 
     inputs.nixos-hardware.nixosModules.common-cpu-amd
     inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate
