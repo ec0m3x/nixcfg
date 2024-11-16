@@ -33,7 +33,6 @@ in
       env = [
         "WLR_NO_HARDWARE_CURSORS,1"
         "GSK_RENDERER,ngl"
-        #"AQ_DRM_DEVICES,/dev/dri/card1"
       ];
 
       "$mod" = "SUPER";
