@@ -9,7 +9,6 @@
     ./gtk.nix
     ./qt.nix
     ./xdg.nix
-    ./zathura.nix
   ];
 
   programs = {
@@ -22,7 +21,6 @@
     # bambu-studio
     catppuccin-gtk
     desktop-file-utils
-    ght
     (google-chrome.override {
       commandLineArgs = [
         # Workaround for log spam on video calls: https://issues.chromium.org/issues/331796411

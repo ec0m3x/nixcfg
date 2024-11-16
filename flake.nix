@@ -60,7 +60,7 @@
         "${username}@n1x-cs-1" = libx.mkHome { hostname = "n1x-cs-1"; };
       };
 
-      # nix build .#nixosConfigurations.freyja.config.system.build.toplevel
+      # nix build .#nixosConfigurations.n1x-hd-1.config.system.build.toplevel
       nixosConfigurations = {
         # Desktop machines
         n1x-hd-1 = libx.mkHost {
