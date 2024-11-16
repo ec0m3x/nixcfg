@@ -18,6 +18,7 @@
 
   home.packages = with pkgs; [
     audacity
+    brave
     # bambu-studio
     catppuccin-gtk
     desktop-file-utils

@@ -58,12 +58,12 @@ in
 
       decoration = {
         rounding = 8;
-        drop_shadow = true;
-        shadow_ignore_window = true;
-        shadow_offset = "0 5";
-        shadow_range = 50;
-        shadow_render_power = 3;
-        "col.shadow" = "rgba(00000099)";
+        #drop_shadow = true;
+        #shadow_ignore_window = true;
+        #shadow_offset = "0 5";
+        #shadow_range = 50;
+        #shadow_render_power = 3;
+        #"col.shadow" = "rgba(00000099)";
       };
 
       animation = [
