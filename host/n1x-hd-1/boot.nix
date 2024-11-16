@@ -3,14 +3,6 @@
   boot = {
     initrd.systemd.enable = true;
     
-    # Secure boot configuration
-    bootspec.enable = true;
-    loader.systemd-boot.enable = lib.mkForce false;
-    lanzaboote = {
-      enable = true;
-      pkiBundle = "/etc/secureboot";
-    };
-    
     initrd = {
       availableKernelModules = [ 
         "xhci_pci"

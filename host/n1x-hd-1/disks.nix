@@ -94,7 +94,7 @@ in
                 settings = {
                   # Make sure there is no trailing newline in keyfile if used for interactive unlock.
                   # Use `echo -n "password" > /tmp/secret.key`
-                  keyFile = "/tmp/data.keyfile";
+                  keyFile = "/etc/data.keyfile";
                   allowDiscards = true;
                 };
 
