@@ -15,6 +15,7 @@
 
     ../services/tailscale.nix
     ../services/openssh.nix
+    ../services/secrets.nix
   ];
 
   environment.systemPackages = (import ./packages.nix { inherit pkgs; }).basePackages;
