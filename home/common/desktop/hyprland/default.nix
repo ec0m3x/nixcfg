@@ -30,6 +30,12 @@ in
       inherit (outputs) monitor workspace;
       inherit (windowRules) windowrulev2;
 
+      env = [
+        "WLR_NO_HARDWARE_CURSORS,1"
+        "GSK_RENDERER,ngl"
+        "AQ_DRM_DEVICES,/dev/dri/card1"
+      ];
+
       "$mod" = "SUPER";
 
       general = {
@@ -106,8 +112,5 @@ in
       ExecStart = "${lib.getExe pkgs.swaybg} -m fill -i ${theme.wallpaper}";
       Restart = "on-failure";
     };
-  };
-  home.sessionVariables = {
-    GSK_RENDERER = "ngl";
   };
 }
