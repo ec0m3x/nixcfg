@@ -26,7 +26,7 @@ in
     git.enable = true;
     gpg.enable = true;
     home-manager.enable = true;
-    jq.enable = false;
+    jq.enable = true;
   };
 
   services.gpg-agent = {

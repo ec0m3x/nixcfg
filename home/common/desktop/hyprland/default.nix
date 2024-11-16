@@ -107,4 +107,7 @@ in
       Restart = "on-failure";
     };
   };
+  home.sessionVariables = {
+    GSK_RENDERER = "ngl";
+  };
 }
