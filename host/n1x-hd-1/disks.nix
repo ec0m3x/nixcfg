@@ -1,5 +1,10 @@
 {
   lib,
+  disks ? [
+    "/dev/vda"
+    "/dev/vdb"
+    "/dev/vdc"
+  ],
   ...
 }:
 let
@@ -14,7 +19,8 @@ in
 {
   environment.etc = {
     "crypttab".text = ''
-      data  /dev/disk/by-partlabel/data  /etc/data.keyfile
+      data1  /dev/disk/by-partlabel/data1  /etc/data.keyfile
+      data2  /dev/disk/by-partlabel/data2  /etc/data.keyfile
     '';
   };
 
@@ -25,7 +31,7 @@ in
       # - A LUKS container which containers multiple btrfs subvolumes for nixos install
       nvme0n1 = {
         type = "disk";
-        device = "/dev/nvme0n1";
+        device = builtins.elemAt disks 0;
         content = {
           type = "gpt";
           partitions = {
@@ -84,7 +90,7 @@ in
         };
       };
       sda = {
-        device = "/dev/sda";
+        device = builtins.elemAt disks 1;
         type = "disk";
         content = {
           type = "gpt";
@@ -93,7 +99,7 @@ in
               size = "100%";
               content = {
                 type = "luks";
-                name = "data";
+                name = "data1";
 
                 settings = {
                   # Make sure there is no trailing newline in keyfile if used for interactive unlock.
@@ -111,7 +117,45 @@ in
                   extraArgs = [ "-f" ];
                   subvolumes = {
                     "@data" = {
-                      mountpoint = "/home/ecomex/data";
+                      mountpoint = "/home/ecomex/data/data-ssd-1";
+                      mountOptions = defaultBtrfsOpts;
+                    };
+                  };
+                };
+              };
+            };
+          };
+        };
+      };
+      sdb = {
+        device = builtins.elemAt disks 2;
+        type = "disk";
+        content = {
+          type = "gpt";
+          partitions = {
+            data = {
+              size = "100%";
+              content = {
+                type = "luks";
+                name = "data2";
+
+                settings = {
+                  # Make sure there is no trailing newline in keyfile if used for interactive unlock.
+                  # Use `echo -n "password" > /tmp/secret.key`
+                  keyFile = "/tmp/data.keyfile";
+                  allowDiscards = true;
+                };
+
+                # Don't try to unlock this drive early in the boot.
+                initrdUnlock = false;
+
+                content = {
+                  type = "btrfs";
+                  # Override existing partition
+                  extraArgs = [ "-f" ];
+                  subvolumes = {
+                    "@data" = {
+                      mountpoint = "/home/ecomex/data/data-ssd-2";
                       mountOptions = defaultBtrfsOpts;
                     };
                   };
