@@ -6,6 +6,7 @@
     ../dev
 
     ./foot.nix
+    ./alacritty.nix
     ./gtk.nix
     ./qt.nix
     ./xdg.nix
