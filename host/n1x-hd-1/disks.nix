@@ -95,7 +95,7 @@ in
         content = {
           type = "gpt";
           partitions = {
-            data = {
+            data1 = {
               size = "100%";
               content = {
                 type = "luks";
@@ -133,7 +133,7 @@ in
         content = {
           type = "gpt";
           partitions = {
-            data = {
+            data2 = {
               size = "100%";
               content = {
                 type = "luks";
