@@ -135,7 +135,7 @@ in
           partitions = {
             data2 = {
               size = "100%";
-              label = "data1";
+              label = "data2";
               content = {
                 type = "luks";
                 name = "data2";
