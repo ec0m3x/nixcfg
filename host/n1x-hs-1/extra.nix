@@ -1,6 +1,8 @@
 {
   imports = [ 
     ../common/services/extraServices
+    ../common/services/immich.nix
+
   ];
 
   # Extra services

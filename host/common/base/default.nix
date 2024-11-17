@@ -13,6 +13,8 @@
     ./nh.nix
     ./zramswap.nix
 
+    ../services/avahi.nix
+    ../services/firewall.nix
     ../services/tailscale.nix
     ../services/openssh.nix
     ../services/secrets.nix
