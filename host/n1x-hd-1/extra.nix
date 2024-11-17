@@ -1,6 +1,9 @@
 {
   imports = [ 
     ../common/services/extraServices
+
+    # Containers
+    ../common/containers/openwebui
   ];
 
   # Extra services
