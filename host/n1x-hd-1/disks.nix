@@ -100,7 +100,7 @@ in
               content = {
                 type = "luks";
                 name = "data1";
-
+                label = "data1";
                 settings = {
                   # Make sure there is no trailing newline in keyfile if used for interactive unlock.
                   # Use `echo -n "password" > /tmp/secret.key`
@@ -138,7 +138,7 @@ in
               content = {
                 type = "luks";
                 name = "data2";
-
+                label = "data2";
                 settings = {
                   # Make sure there is no trailing newline in keyfile if used for interactive unlock.
                   # Use `echo -n "password" > /tmp/secret.key`
