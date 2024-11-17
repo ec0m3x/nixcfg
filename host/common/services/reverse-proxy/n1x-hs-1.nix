@@ -5,24 +5,28 @@ let
 
   mkVHost = backend: ''
     tls {
-      dns digitalocean {$DO_AUTH_TOKEN}
+      dns cloudflare {$CLOUDFLARE_TOKEN}
     }
     reverse_proxy ${backend}
   '';
 in
 {
+  age.secrets.cloudflare = {
+    file = "${self}/secrets/n1x-hs-1-cloudflare.age";
+    owner = "caddy";
+    group = "caddy";
+    mode = "600";
+  };
+
+  # Ensure DigitalOcean token is in Caddy's environment
+  systemd.services.caddy.serviceConfig.EnvironmentFile = config.age.secrets.cloudflare.path;
 
   services = {
     # Enable caddy to talk to the tailscale daemon for certs
     tailscale.permitCertUid = "caddy";
 
     caddy.virtualHosts = {
-      "files.${domain}".extraConfig = mkVHost "http://localhost:8081";
-      "ha.${domain}".extraConfig = mkVHost "http://localhost:8123";
       "photos.${domain}".extraConfig = mkVHost "http://localhost:3001";
-      "freyja.sync.${domain}".extraConfig = mkVHost "http://freyja.${tailnet}:8384";
-      "kara.sync.${domain}".extraConfig = mkVHost "http://kara.${tailnet}:8384";
-      "thor.sync.${domain}".extraConfig = mkVHost "http://thor.${tailnet}:8384";
     };
   };
 }

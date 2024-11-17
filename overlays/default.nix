@@ -24,7 +24,7 @@
           # example = prev.example.overrideAttrs (oldAttrs: rec {
           # ...
           # });
-          # custom-caddy = import ./custom-caddy.nix { pkgs = prev; };
+          custom-caddy = import ./custom-caddy.nix { pkgs = prev; };
         })
       ];
     };
