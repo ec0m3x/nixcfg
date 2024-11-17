@@ -27,6 +27,8 @@ in
 
     caddy.virtualHosts = {
       "photos.${domain}".extraConfig = mkVHost "http://localhost:3001";
+      "docs.${domain}".extraConfig = mkVHost "http://localhost:28981";
+      "vault.${domain}".extraConfig = mkVHost "http://localhost:8000";
     };
   };
 }
