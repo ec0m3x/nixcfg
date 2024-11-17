@@ -1,9 +1,9 @@
 {
   lib,
   disks ? [
-    "/dev/vda"
-    "/dev/vdb"
-    "/dev/vdc"
+    "/dev/nvme0n1"
+    "/dev/sda"
+    "/dev/sdb"
   ],
   ...
 }:
