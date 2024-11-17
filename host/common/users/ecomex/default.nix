@@ -6,7 +6,7 @@ in
   users.users.ecomex = {
     isNormalUser = true;
     initialHashedPassword = "$y$j9T$DCsAZWNDXgusEdpMj5Kii.$ET9fwRimvENqxjcsYbLJt5cHsJPR1T1Eoq0lcqwJP1B";
-    shell = pkgs.fish;
+    shell = pkgs.zsh;
     extraGroups =
       [
         "audio"

@@ -18,6 +18,17 @@
 
   home.packages = with pkgs; [
     audacity
+    vscode
+    zotero
+    thunderbird
+    yt-dlp
+    obs-studio
+    spotify
+    musikcube
+    vesktop
+    bitwarden-desktop
+    skanlite
+    cava
     brave
     # bambu-studio
     catppuccin-gtk

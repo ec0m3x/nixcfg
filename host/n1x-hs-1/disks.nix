@@ -1,22 +1,29 @@
+{ lib, ... }:
+let
+  defaultBtrfsOpts = [
+    "defaults"
+    "compress=zstd:1"
+    "ssd"
+    "noatime"
+    "nodiratime"
+  ];
+in
 {
-  lib,
-  ...
-}:
-{
+
   disko.devices = {
     disk = {
-      nixos = {
-        type = "disk";
+      # 512GB root/boot drive. Configured with:
+      # - A FAT32 ESP partition for systemd-boot
+      # - Multiple btrfs subvolumes for the installation of nixos
+      nvme0 = {
         device = "/dev/vda";
+        type = "disk";
         content = {
           type = "gpt";
           partitions = {
-            boot = {
-              size = "1M";
-              type = "EF02"; # for grub MBR
-            };
             ESP = {
-              size = "512M";
+              start = "0%";
+              end = "512MiB";
               type = "EF00";
               content = {
                 type = "filesystem";
@@ -25,11 +32,34 @@
               };
             };
             root = {
-              size = "100%";
+              start = "512MiB";
+              end = "100%";
               content = {
-                type = "filesystem";
-                format = "ext4";
-                mountpoint = "/";
+                type = "btrfs";
+                # Override existing partition
+                extraArgs = [ "-f" ];
+                subvolumes = {
+                  "@" = {
+                    mountpoint = "/";
+                    mountOptions = defaultBtrfsOpts;
+                  };
+                  "@nix" = {
+                    mountpoint = "/nix";
+                    mountOptions = defaultBtrfsOpts;
+                  };
+                  "@home" = {
+                    mountpoint = "/home";
+                    mountOptions = defaultBtrfsOpts;
+                  };
+                  "@var" = {
+                    mountpoint = "/var";
+                    mountOptions = defaultBtrfsOpts;
+                  };
+                  "@snapshots" = {
+                    mountpoint = "/.snapshots";
+                    mountOptions = defaultBtrfsOpts;
+                  };
+                };
               };
             };
           };
