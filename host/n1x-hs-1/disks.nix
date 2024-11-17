@@ -22,8 +22,7 @@ in
           type = "gpt";
           partitions = {
             ESP = {
-              start = "0%";
-              end = "512MiB";
+              size = "512M";
               type = "EF00";
               content = {
                 type = "filesystem";
@@ -32,8 +31,7 @@ in
               };
             };
             root = {
-              start = "512MiB";
-              end = "100%";
+              size = "100%";
               content = {
                 type = "btrfs";
                 # Override existing partition

@@ -90,8 +90,7 @@ in
           type = "gpt";
           partitions = {
             data = {
-              start = "0%";
-              end = "100%";
+              size = "100%";
               content = {
                 type = "luks";
                 name = "data";
