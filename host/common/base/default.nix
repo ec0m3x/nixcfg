@@ -25,7 +25,7 @@
     useDHCP = lib.mkDefault true;
   };
 
-  programs.fish.enable = true;
+  programs.zsh.enable = true;
 
   security = {
     polkit.enable = true;
