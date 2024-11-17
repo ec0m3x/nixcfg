@@ -16,6 +16,12 @@ let
   ];
 in
 {
+  environment.etc = {
+    "crypttab".text = ''
+      data  /dev/disk/by-partlabel/data  /etc/data.keyfile
+    '';
+  };
+
   disko.devices = {
     disk = {
       # 512GB root/boot drive. Configured with:
@@ -75,17 +81,31 @@ in
         content = {
           type = "gpt";
           partitions = {
-            data = {
+            data1 = {
               size = "100%";
               label = "data";
               content = {
-                type = "btrfs";
-                # Override existing partition
-                extraArgs = [ "-f" ];
-                subvolumes = {
-                  "@data" = {
-                    mountpoint = "/home/ecomex/data";
-                    mountOptions = defaultBtrfsOpts;
+                type = "luks";
+                name = "data";
+                settings = {
+                  # Make sure there is no trailing newline in keyfile if used for interactive unlock.
+                  # Use `echo -n "password" > /tmp/secret.key`
+                  keyFile = "/tmp/data.keyfile";
+                  allowDiscards = true;
+                };
+
+                # Don't try to unlock this drive early in the boot.
+                initrdUnlock = false;
+
+                content = {
+                  type = "btrfs";
+                  # Override existing partition
+                  extraArgs = [ "-f" ];
+                  subvolumes = {
+                    "@data" = {
+                      mountpoint = "/home/ecomex/data";
+                      mountOptions = defaultBtrfsOpts;
+                    };
                   };
                 };
               };
