@@ -13,5 +13,6 @@
   extraServices.libvirt.enable = true;
   extraServices.cachix.enable = true;
   extraServices.nfs-mount.enable = true;
+  extraServices.syncthing.enable = true;
 
 }

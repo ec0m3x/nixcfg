@@ -14,5 +14,6 @@
   extraServices.ollama.enable = false;
   extraServices.libvirt.enable = false;
   extraServices.cachix.enable = false;
+  extraServices.syncthing.enable = true;
 
 }

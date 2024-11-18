@@ -1,4 +1,4 @@
-_: {
+/* _: {
   services.syncthing = {
     enable = true;
     extraOptions = [
@@ -6,4 +6,4 @@ _: {
       "-home=/home/ecomex/.syncthing"
     ];
   };
-}
+} */
