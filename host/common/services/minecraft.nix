@@ -1,8 +1,9 @@
-{ config, pkgs, ... }:
+{ config, pkgs, unstable, ... }:
 
 {
   services.minecraft-server = {
     enable = true;
+    package = pkgs.unstable.minecraft-server;
     eula = true; # set to true if you agree to Mojang's EULA: https://account.mojang.com/documents/minecraft_eula
     declarative = true;
 
@@ -12,6 +13,8 @@
       gamemode = "survival";
       motd = "3c0m3x Minecraft server on Tailscale!";
       max-players = 5;
+      enable-rcon = true;
+      "rcon.password" = "hunter2";
     };
   };
 }
