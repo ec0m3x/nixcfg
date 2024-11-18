@@ -5,6 +5,8 @@
     ../common/services/reverse-proxy
     ../common/services/paperless-ngx.nix
     ../common/services/vaultwarden.nix
+    # Containers
+    #../common/containers/immich
 
   ];
 

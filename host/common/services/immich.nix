@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ config, pkgs, inputs, unstable, ... }:
 {
   disabledModules = [ "services/web-apps/immich.nix" ];
   imports = [
@@ -8,6 +8,8 @@
   services.immich = {
     enable = true;
     package = pkgs.unstable.immich;
+    mediaLocation = "/home/ecomex/data/immich";
+    host = "127.0.0.1";
     openFirewall = true;
     port = 3001;
 

@@ -7,7 +7,6 @@
         ".DS_STORE/*"
         "desktop.ini"
       ];
-      PAPERLESS_DBHOST = "/run/postgresql";
       PAPERLESS_OCR_LANGUAGE = "deu+eng";
       PAPERLESS_OCR_USER_ARGS = {
         optimize = 1;

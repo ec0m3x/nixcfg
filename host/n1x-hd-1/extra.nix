@@ -3,7 +3,7 @@
     ../common/services/extraServices
 
     # Containers
-    ../common/containers/openwebui
+    #../common/containers/openwebui
   ];
 
   # Extra services

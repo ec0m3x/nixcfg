@@ -17,6 +17,8 @@
     kernelModules = [
       "kvm-intel"
     ];
+  
+  kernel.sysctl = lib.mkForce { "vm.overcommit_memory" = 1; };
   };
 }
 
