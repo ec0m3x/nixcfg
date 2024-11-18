@@ -5,5 +5,6 @@
     ./gaming.nix
     ./ollama.nix
     ./libvirt.nix
+    ./nfs-mount.nix
   ];
 }

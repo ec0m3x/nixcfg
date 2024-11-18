@@ -12,5 +12,6 @@
   extraServices.ollama.enable = true;
   extraServices.libvirt.enable = true;
   extraServices.cachix.enable = true;
+  extraServices.nfs-mount.enable = true;
 
 }
