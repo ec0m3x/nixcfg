@@ -11,5 +11,7 @@ _: {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
+    
+    supportedFilesystems = [ "nfs" ];
   };
 }

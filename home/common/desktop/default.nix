@@ -29,7 +29,7 @@
     vesktop
     bitwarden-desktop
     skanlite
-    cava
+    #cava
     brave
     # bambu-studio
     catppuccin-gtk

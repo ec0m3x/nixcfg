@@ -103,7 +103,7 @@ in
                   extraArgs = [ "-f" ];
                   subvolumes = {
                     "@data" = {
-                      mountpoint = "/home/ecomex/data";
+                      mountpoint = "/data";
                       mountOptions = defaultBtrfsOpts;
                     };
                   };
