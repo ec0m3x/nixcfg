@@ -1,4 +1,9 @@
-_: {
+{
+  pkgs,
+  hostname,
+  ...
+}:
+{
   boot = {
     initrd.systemd.enable = true;
 
@@ -7,7 +12,12 @@ _: {
       "net.ipv6.conf.all.forwarding" = 1;
     };
 
-    loader = {
+    loader = if hostname == "n1x-cs-1" then {
+      grub = {
+        efiSupport = true;
+        efiInstallAsRemovable = true;
+      };
+    } else {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
