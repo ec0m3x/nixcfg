@@ -24,9 +24,12 @@ _: {
     "float, title:(Open|Progress|Save File)"
     "center, title:(Open|Progress|Save File)"
     "pin, title:(Open|Progress|Save File)"
-    #"float, class:^(code)$"
-    #"center, class:^(code)$"
-    #"pin, class:^(code)$"
+    "float, title:^(Bitwarden)$"
+    "center, title:^(Bitwarden)$"
+    "pin, title:^(Bitwarden)$"
+    "float, class:^(brave-nngceckbapebfimnlniiiahkandclblb-Default)$"
+    "center, class:^(brave-nngceckbapebfimnlniiiahkandclblb-Default)$"
+    "pin, class:^(brave-nngceckbapebfimnlniiiahkandclblb-Default)$"
 
     # assign windows to workspaces
     # "workspace 1 silent, class:[Ff]irefox"
