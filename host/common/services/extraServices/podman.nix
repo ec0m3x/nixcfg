@@ -28,5 +28,6 @@ in {
     environment.systemPackages = with pkgs; [
       podman-compose
     ];
+    hardware.nvidia-container-toolkit.enable = true;
   };
 }

@@ -4,6 +4,7 @@
 
     # Containers
     ../common/containers/openwebui
+    ../common/containers/invokeai
   ];
 
   # Extra services

@@ -1,5 +1,5 @@
 let
-  browser = [ "google-chrome.desktop" ];
+  browser = [ "brave-brwoser.desktop" ];
   archiveManager = [ "org.gnome.FileRoller.desktop" ];
   imageViewer = [ "org.gnome.Loupe.desktop" ];
   videoPlayer = [ "mpv.desktop" ];

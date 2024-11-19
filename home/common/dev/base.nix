@@ -30,8 +30,6 @@
     deadnix
     nil
     nix-init
-    # My custom wrapper that does nixfmt + deadnix + statix
-    nixfmt-plus
     nixfmt-rfc-style
     nurl
     statix

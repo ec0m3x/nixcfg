@@ -40,6 +40,7 @@
 
       # You can also add overlays exported from other flakes:
       inputs.agenix.overlays.default
+      inputs.nix-vscode-extensions.overlays.default
     ];
 
     config = {

@@ -7,7 +7,7 @@
       enable = true;
       flavor = "mocha";
     };
-    terminal = "${pkgs.foot}/bin/foot";
+    terminal = "${pkgs.alacritty}/bin/alacritty";
 
     extraConfig = {
       modi = "drun";
