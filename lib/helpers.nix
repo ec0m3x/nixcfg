@@ -59,6 +59,26 @@
         ../host
       ];
     };
+  mkDarwin =
+    {
+      hostname,
+      user ? username
+      desktop ? null,
+      system ? "aarch64-darwin",
+    }:
+    inputs.nix-darwin.lib.darwinSystem {
+      specialArgs = {
+        inherit
+          self
+          inputs
+          outputs
+          hostname
+          system
+          username
+          ;
+      };
+      modules = [ ../darwin ];
+    };
 
   forAllSystems = inputs.nixpkgs.lib.genAttrs [
     "aarch64-linux"

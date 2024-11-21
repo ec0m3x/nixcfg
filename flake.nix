@@ -5,6 +5,9 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     master.url = "github:nixos/nixpkgs/master";
+
+    nix-darwin.url = "github:LnL7/nix-darwin";
+    nix-darwin.inputs.nixpkgs.follows = "unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     agenix.url = "github:ryantm/agenix";
@@ -78,6 +81,14 @@
         n1x-cs-1 = libx.mkHost {
           hostname = "n1x-cs-1";
           pkgsInput = nixpkgs;
+        };
+      };
+      
+      #nix run nix-darwin -- switch --flake ~/nixos-config
+      #nix build .#darwinConfigurations.{hostname}.config.system.build.toplevel
+      darwinConfigurations = {
+        macbook = libx.mkDarwin {
+          hostname = "nacbook";
         };
       };
 
