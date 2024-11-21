@@ -1,6 +1,7 @@
 {
   imports = [ 
     ../common/services/extraServices
+    ../common/hardware/printing.nix
 
     # Containers
     ../common/containers/openwebui
