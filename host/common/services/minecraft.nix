@@ -4,10 +4,8 @@
   services.minecraft-server = {
     enable = true;
     package = pkgs.unstable.minecraft-server;
-    eula = true; # set to true if you agree to Mojang's EULA: https://account.mojang.com/documents/minecraft_eula
+    eula = true;
     declarative = true;
-
-    # see here for more info: https://minecraft.gamepedia.com/Server.properties#server.properties
     serverProperties = {
       server-port = 25565;
       gamemode = "survival";
