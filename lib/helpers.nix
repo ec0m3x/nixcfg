@@ -66,8 +66,7 @@
       desktop ? null,
       system ? "aarch64-darwin",
     }:
-    inputs.nix-darwin.lib.system {
-      pkgs = inputs.unstable.legacyPackages.${system};
+    inputs.nix-darwin.lib.darwinSystem {
       extraSpecialArgs = {
         inherit
           self
@@ -76,6 +75,7 @@
           stateVersion
           hostname
           desktop
+          system
           ;
         username = user;
       };
