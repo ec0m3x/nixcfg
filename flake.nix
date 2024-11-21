@@ -88,7 +88,7 @@
       #nix build .#darwinConfigurations.{hostname}.config.system.build.toplevel
       darwinConfigurations = {
         macbook = libx.mkDarwin {
-          hostname = "nacbook";
+          hostname = "macbook";
         };
       };
 

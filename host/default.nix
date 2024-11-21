@@ -64,6 +64,7 @@
         "nix-command"
         "flakes"
       ];
+      warn-dirty = false;
       trusted-users = [
         "root"
         "@wheel"

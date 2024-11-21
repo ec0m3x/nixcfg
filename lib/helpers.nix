@@ -62,22 +62,26 @@
   mkDarwin =
     {
       hostname,
-      user ? username
+      user ? username,
       desktop ? null,
       system ? "aarch64-darwin",
     }:
-    inputs.nix-darwin.lib.darwinSystem {
-      specialArgs = {
+    inputs.nix-darwin.lib.system {
+      pkgs = inputs.unstable.legacyPackages.${system};
+      extraSpecialArgs = {
         inherit
           self
           inputs
           outputs
+          stateVersion
           hostname
-          system
-          username
+          desktop
           ;
+        username = user;
       };
-      modules = [ ../darwin ];
+      modules = [
+        ../darwin
+      ];
     };
 
   forAllSystems = inputs.nixpkgs.lib.genAttrs [

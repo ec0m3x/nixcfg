@@ -24,6 +24,7 @@
     thunderbird
     yt-dlp
     obs-studio
+    davinci-resolve
     spotify
     musikcube
     vesktop
