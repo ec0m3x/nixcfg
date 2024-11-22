@@ -3,7 +3,6 @@
   disks ? [
     "/dev/nvme0n1"
     "/dev/sda"
-    "/dev/sdb"
   ],
   ...
 }:
@@ -19,8 +18,7 @@ in
 {
   environment.etc = {
     "crypttab".text = ''
-      data1  /dev/disk/by-partlabel/data1  /etc/data.keyfile
-      data2  /dev/disk/by-partlabel/data2  /etc/data.keyfile
+      data  /dev/disk/by-partlabel/data  /etc/data.keyfile
     '';
   };
 
@@ -95,12 +93,12 @@ in
         content = {
           type = "gpt";
           partitions = {
-            data1 = {
+            data = {
               size = "100%";
-              label = "data1";
+              label = "data";
               content = {
                 type = "luks";
-                name = "data1";
+                name = "data";
                 settings = {
                   # Make sure there is no trailing newline in keyfile if used for interactive unlock.
                   # Use `echo -n "password" > /tmp/secret.key`
@@ -117,45 +115,7 @@ in
                   extraArgs = [ "-f" ];
                   subvolumes = {
                     "@data" = {
-                      mountpoint = "/home/ecomex/data/data-ssd-1";
-                      mountOptions = defaultBtrfsOpts;
-                    };
-                  };
-                };
-              };
-            };
-          };
-        };
-      };
-      sdb = {
-        device = builtins.elemAt disks 2;
-        type = "disk";
-        content = {
-          type = "gpt";
-          partitions = {
-            data2 = {
-              size = "100%";
-              label = "data2";
-              content = {
-                type = "luks";
-                name = "data2";
-                settings = {
-                  # Make sure there is no trailing newline in keyfile if used for interactive unlock.
-                  # Use `echo -n "password" > /tmp/secret.key`
-                  keyFile = "/tmp/data.keyfile";
-                  allowDiscards = true;
-                };
-
-                # Don't try to unlock this drive early in the boot.
-                initrdUnlock = false;
-
-                content = {
-                  type = "btrfs";
-                  # Override existing partition
-                  extraArgs = [ "-f" ];
-                  subvolumes = {
-                    "@data" = {
-                      mountpoint = "/home/ecomex/data/data-ssd-2";
+                      mountpoint = "/home/ecomex/data";
                       mountOptions = defaultBtrfsOpts;
                     };
                   };
