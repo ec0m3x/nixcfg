@@ -2,6 +2,7 @@
 {
   services.paperless = {
     enable = true;
+    dataDir = "/data/paperless";
     settings = {
       PAPERLESS_CONSUMER_IGNORE_PATTERN = [
         ".DS_STORE/*"
