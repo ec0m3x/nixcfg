@@ -13,4 +13,5 @@ let
 in {
     "n1x-hs-1-cloudflare.age".publicKeys = users ++ [n1x-hs-1];
     "tailscalekey.age".publicKeys = users ++ [n1x-hd-1] ++ [n1x-hs-1] ++ [n1x-cs-1];
+    "searx-key.age".publicKeys = users ++ [n1x-hs-1];
 }
