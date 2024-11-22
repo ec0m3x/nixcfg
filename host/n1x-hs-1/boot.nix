@@ -14,7 +14,7 @@
       "kvm-intel"
     ];
   
-  kernel.sysctl = lib.mkForce { "vm.overcommit_memory" = 1; };
+  #kernel.sysctl = lib.mkForce { "vm.overcommit_memory" = 1; };
   };
 }
 
