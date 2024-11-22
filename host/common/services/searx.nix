@@ -1,4 +1,4 @@
-{ pkgs, config, ... }: 
+{ self, config, ... }: 
 {
   services.searx = {
     enable = true;
