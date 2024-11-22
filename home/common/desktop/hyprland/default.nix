@@ -33,6 +33,8 @@ in
       env = [
         "WLR_NO_HARDWARE_CURSORS,1"
         "GSK_RENDERER,ngl"
+        "LIBVA_DRIVER_NAME,nvidia"
+        "__GLX_VENDOR_LIBRARY_NAME,nvidia"
       ];
 
       "$mod" = "SUPER";
@@ -41,6 +43,10 @@ in
         gaps_in = 4;
         gaps_out = 8;
         border_size = 0;
+      };
+
+      cursor = {
+        no_hardware_cursors = true;
       };
 
       dwindle = {

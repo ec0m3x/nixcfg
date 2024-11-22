@@ -6,6 +6,7 @@
     ../common/services/paperless-ngx.nix
     ../common/services/vaultwarden.nix
     ../common/services/nfs
+    ../common/services/searx.nix
   ];
 
   # Extra services
