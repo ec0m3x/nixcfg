@@ -12,6 +12,7 @@
 {
   imports = [
     ./${hostname}
+    ./common
   ];
 
   # Only install the docs I use
@@ -57,7 +58,6 @@
   nix = {
     optimise.automatic = true;
     settings = {
-      auto-optimise-store = true;
       experimental-features = [
         "nix-command"
         "flakes"
@@ -79,12 +79,12 @@
   security.pam.enableSudoTouchIdAuth = true;
 
   services = {
-    activate-system.enable = true;
     nix-daemon.enable = true;
     tailscale.enable = true;
   };
 
   system = {
+    stateVersion = 5;
     checks = {
       verifyNixChannels = false;
     };
@@ -152,7 +152,7 @@
         orientation = "left";
         # TODO: Make this user-specific
         persistent-apps = [
-          "/Applications/Brave Browser.app"
+/*           "/Applications/Brave Browser.app"
           "/Applications/Wavebox.app"
           "/Users/${username}/Applications/Home Manager Apps/Telegram.app"
           "/Users/${username}/Applications/Home Manager Apps/Discord.app"
@@ -163,7 +163,7 @@
           "/Users/${username}/Applications/Home Manager Apps/Alacritty.app"
           "/System/Applications/Music.app"
           "/Applications/Heynote.app"
-          "/Applications/Joplin.app"
+          "/Applications/Joplin.app" */
           "/System/Applications/Launchpad.app"
         ];
         show-recents = false;

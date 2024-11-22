@@ -67,7 +67,7 @@
       system ? "aarch64-darwin",
     }:
     inputs.nix-darwin.lib.darwinSystem {
-      extraSpecialArgs = {
+      specialArgs = {
         inherit
           self
           inputs
