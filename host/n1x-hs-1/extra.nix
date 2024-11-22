@@ -7,6 +7,7 @@
     ../common/services/vaultwarden.nix
     ../common/services/nfs
     ../common/services/searx.nix
+    ../common/services/stirling.nix
   ];
 
   # Extra services
