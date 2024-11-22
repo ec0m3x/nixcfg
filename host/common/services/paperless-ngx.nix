@@ -3,6 +3,7 @@
   services.paperless = {
     enable = true;
     dataDir = "/data/paperless";
+    consumptionDirIsPublic = true;
     settings = {
       PAPERLESS_CONSUMER_IGNORE_PATTERN = [
         ".DS_STORE/*"
@@ -13,6 +14,7 @@
         optimize = 1;
         pdfa_image_compression = "lossless";
       };
+      PAPERLESS_CONSUMER_POLLING = 60;
     };
   };
 }
