@@ -29,6 +29,8 @@
 
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     nix-vscode-extensions.inputs.nixpkgs.follows = "unstable";
+
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
   };
 
   outputs =

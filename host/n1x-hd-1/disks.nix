@@ -2,7 +2,7 @@
   lib,
   disks ? [
     "/dev/nvme0n1"
-    "/dev/sdb"
+    "/dev/sda"
   ],
   ...
 }:

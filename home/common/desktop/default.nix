@@ -1,4 +1,9 @@
-{ pkgs, desktop, ... }:
+{ pkgs, desktop, inputs, ... }:
+
+let
+  system = "x86_64-linux";
+in
+
 {
   imports = [
     (./. + "/${desktop}")
@@ -52,6 +57,7 @@
     todoist-electron
     xdg-utils
     xorg.xlsclients
+    inputs.zen-browser.packages."${system}".specific
   ];
 
   fonts.fontconfig.enable = true;
