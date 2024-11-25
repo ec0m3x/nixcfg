@@ -12,7 +12,7 @@ let
 in
 {
   age.secrets.cloudflare = {
-    file = "${self}/secrets/n1x-hs-1-cloudflare.age";
+    file = "${self}/secrets/n1x-cs-1-cloudflare.age";
     owner = "caddy";
     group = "caddy";
     mode = "600";
@@ -26,12 +26,7 @@ in
     tailscale.permitCertUid = "caddy";
 
     caddy.virtualHosts = {
-      "photos.${domain}".extraConfig = mkVHost "http://localhost:3001";
-      "docs.${domain}".extraConfig = mkVHost "http://localhost:28981";
-      "vault.${domain}".extraConfig = mkVHost "http://localhost:8000";
-      "search.${domain}".extraConfig = mkVHost "http://localhost:8181";
-      "pdf.${domain}".extraConfig = mkVHost "http://localhost:9090";
-      "n8n-hs.${domain}".extraConfig = mkVHost "http://localhost:5678";
+      "n8n.${domain}".extraConfig = mkVHost "http://localhost:5678";
     };
   };
 }
