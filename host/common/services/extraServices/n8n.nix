@@ -17,7 +17,7 @@ in {
       n8n = {
         enable = true;
         openFirewall = true;
-        webhookUrl = "https://n1x-cs-1.taile8253.ts.net";
+        webhookUrl = "https://n8n.sks-concept.de";
       };
       qdrant = {
         enable = true;
