@@ -18,7 +18,7 @@ in
     mode = "600";
   };
 
-  # Ensure DigitalOcean token is in Caddy's environment
+  # Ensure token is in Caddy's environment
   systemd.services.caddy.serviceConfig.EnvironmentFile = config.age.secrets.cloudflare.path;
 
   services = {
