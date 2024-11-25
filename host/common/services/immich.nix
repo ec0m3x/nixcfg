@@ -1,13 +1,9 @@
-{ config, pkgs, inputs, unstable, ... }:
+{ pkgs, ... }:
 {
-  disabledModules = [ "services/web-apps/immich.nix" ];
-  imports = [
-    "${inputs.unstable}/nixos/modules/services/web-apps/immich.nix"
-  ];
 
   services.immich = {
     enable = true;
-    package = pkgs.unstable.immich;
+    package = pkgs.immich;
     host = "127.0.0.1";
     openFirewall = true;
     port = 3001;

@@ -7,28 +7,28 @@
     master.url = "github:nixos/nixpkgs/master";
 
     nix-darwin.url = "github:LnL7/nix-darwin";
-    nix-darwin.inputs.nixpkgs.follows = "unstable";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     agenix.url = "github:ryantm/agenix";
-    agenix.inputs.nixpkgs.follows = "unstable";
+    agenix.inputs.nixpkgs.follows = "nixpkgs";
 
     disko.url = "github:nix-community/disko";
-    disko.inputs.nixpkgs.follows = "unstable";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
 
     catppuccin.url = "github:catppuccin/nix";
 
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "unstable";
+    home-manager.url = "github:nix-community/home-manager/release-24.11";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     lanzaboote.url = "github:nix-community/lanzaboote";
-    lanzaboote.inputs.nixpkgs.follows = "unstable";
+    lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
 
     vscode-server.url = "github:nix-community/nixos-vscode-server";
-    vscode-server.inputs.nixpkgs.follows = "unstable";
+    vscode-server.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
-    nix-vscode-extensions.inputs.nixpkgs.follows = "unstable";
+    nix-vscode-extensions.inputs.nixpkgs.follows = "nixpkgs";
 
     zen-browser.url = "github:VCPYC/zen-browser-flake";
   };
@@ -42,7 +42,7 @@
     }@inputs:
     let
       inherit (self) outputs;
-      stateVersion = "24.05";
+      stateVersion = "24.11";
       username = "ecomex";
 
       libx = import ./lib {
@@ -78,11 +78,9 @@
         # Headless machines
         n1x-hs-1 = libx.mkHost {
           hostname = "n1x-hs-1";
-          pkgsInput = nixpkgs;
         };
         n1x-cs-1 = libx.mkHost {
           hostname = "n1x-cs-1";
-          pkgsInput = nixpkgs;
         };
       };
       
