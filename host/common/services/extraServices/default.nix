@@ -3,7 +3,8 @@
     ./cachix.nix
     ./podman.nix
     ./gaming.nix
-    ./ollama.nix
+    ./n8n.nix
+    ./ollama-gpu.nix
     ./libvirt.nix
     ./nfs-mount.nix
     ./syncthing.nix

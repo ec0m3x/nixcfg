@@ -13,7 +13,7 @@
   # Extra services
   extraServices.podman.enable = true;
   extraServices.gaming.enable = false;
-  extraServices.ollama.enable = false;
+  extraServices.n8n.enable = true;
   extraServices.libvirt.enable = false;
   extraServices.cachix.enable = false;
   extraServices.syncthing.enable = true;

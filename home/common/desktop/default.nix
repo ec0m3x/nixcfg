@@ -54,6 +54,7 @@ in
     pavucontrol
     unstable.rambox
     signal-desktop
+    telegram-desktop
     todoist-electron
     xdg-utils
     xorg.xlsclients
