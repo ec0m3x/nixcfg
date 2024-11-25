@@ -26,7 +26,7 @@ in
     tailscale.permitCertUid = "caddy";
 
     caddy.virtualHosts = {
-      "n8n.${domain}".extraConfig = mkVHost "http://217.160.58.76:5678";
+      "n8n.${domain}".extraConfig = mkVHost "http://localhost:5678";
     };
   };
 }
