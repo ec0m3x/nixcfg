@@ -7,7 +7,7 @@
 
   # Extra services
   extraServices.podman.enable = false;
-  extraServices.n8n.enable = true;
+  extraServices.n8n.enable = false;
 
 
 }
