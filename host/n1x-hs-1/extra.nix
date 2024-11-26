@@ -1,8 +1,8 @@
 {
-  imports = [ 
+  imports = [
     ../common/services/extraServices
     ../common/services/immich.nix
-    ../common/services/reverse-proxy
+    ../common/services/reverse-proxy/caddy
     ../common/services/paperless-ngx.nix
     ../common/services/vaultwarden.nix
     ../common/services/nfs
@@ -11,9 +11,9 @@
   ];
 
   # Extra services
-  extraServices.podman.enable = true;
+  extraServices.podman.enable = false;
   extraServices.gaming.enable = false;
-  extraServices.n8n.enable = true;
+  extraServices.n8n.enable = false;
   extraServices.libvirt.enable = false;
   extraServices.cachix.enable = false;
   extraServices.syncthing.enable = true;

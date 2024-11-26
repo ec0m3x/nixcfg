@@ -1,7 +1,7 @@
 { config, self, ... }:
 let
   tailnet = "taile8253.ts.net";
-  domain = "sks-concept.de";
+  domain = "hl.sks-concept.de";
 
   mkVHost = backend: ''
     tls {
