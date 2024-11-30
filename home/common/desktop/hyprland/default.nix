@@ -32,9 +32,10 @@ in
 
       env = [
         "WLR_NO_HARDWARE_CURSORS,1"
-        "GSK_RENDERER,ngl"
         "LIBVA_DRIVER_NAME,nvidia"
         "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+        "AQ_DRM_DEVICES,/dev/dri/card1"
+        "GSK_RENDERER,ngl"
       ];
 
       "$mod" = "SUPER";

@@ -11,5 +11,6 @@ _: {
   zramSwap = {
     algorithm = "lz4";
     enable = true;
+    memoryPercent = 20;
   };
 }

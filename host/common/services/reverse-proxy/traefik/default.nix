@@ -22,16 +22,16 @@
       };
       api.dashboard = true;
       # Access the Traefik dashboard on <Traefik IP>:8080 of your server
-      api.insecure = true;
+      api.insecure = false;
 
       certificatesResolvers = {
         cloudflare = {
           acme = {
-            email = "skoch@sks-concept.de"; # Replace with your email
+            email = "skoch@sks-concept.de";
             storage = "${config.services.traefik.dataDir}/acme.json";
             caServer = "https://acme-v02.api.letsencrypt.org/directory";
             dnsChallenge = {
-              provider = "cloudflare"; # Adjust DNS provider if needed
+              provider = "cloudflare";
               resolvers = [ "1.1.1.1:53" "8.8.8.8:53" ];
             };
           };
@@ -42,8 +42,14 @@
       http = {
         routers = {
           n8n = {
+            entryPoints = [ "websecure" ];
             rule = "Host(`n8n.sks-concept.de`)";
             service = "n8n";
+          };
+          dashboard-secure = {
+            entryPoints = [ "websecure" ];
+            rule = "Host(`traefik.sks-concept.de`)";
+            service = "api@internal";
           };
         };
         services = {
@@ -66,10 +72,7 @@
     mode = "600";
   };
 
-
-
   networking.firewall.allowedTCPPorts = [
-    22
     80
     443
     8080
