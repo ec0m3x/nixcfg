@@ -17,5 +17,7 @@
   extraServices.cachix.enable = true;
   extraServices.nfs-mount.enable = true;
   extraServices.syncthing.enable = true;
+  
+  virtualisation.docker.enable = true;
 
 }
