@@ -6,5 +6,7 @@
   environment.systemPackages = with pkgs; [
     brave
     discord
+    zotero
+    spotify
   ];
 }
