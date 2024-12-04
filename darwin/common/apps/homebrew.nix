@@ -1,8 +1,7 @@
 _: {
   homebrew = {
     casks = [ 
-      "obsidian" 
-      "bitwarden"
+      "obsidian"
     ];
   };
 }
