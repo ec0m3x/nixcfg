@@ -7,17 +7,19 @@
       '';
   };
 
-  virtualisation.oci-containers.containers."invokeai" = {    
-    image = "ghcr.io/invoke-ai/invokeai";
-    autoStart = true;
-    ports = [
-      "9090:9090"
+  virtualisation.oci-containers = {
+    containers."invokeai" = {    
+      image = "ghcr.io/invoke-ai/invokeai";
+      autoStart = true;
+      ports = [
+        "9090:9090"
+        ];
+      volumes = [
+        "/home/ecomex/containers/invokeai/data:/invokeai"
       ];
-    volumes = [
-      "/home/ecomex/containers/invokeai/data:/invokeai"
-    ];
-    extraOptions = [
-      "--gpus=all"
-    ];
+      extraOptions = [
+        "--device=nvidia.com/gpu=all"
+      ];
+    };
   };
 }

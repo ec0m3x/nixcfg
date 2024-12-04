@@ -31,6 +31,9 @@
     nix-vscode-extensions.inputs.nixpkgs.follows = "nixpkgs";
 
     zen-browser.url = "github:VCPYC/zen-browser-flake";
+
+    compose2nix.url = "github:aksiksi/compose2nix";
+    compose2nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =

@@ -11,9 +11,6 @@ in {
 
   config = mkIf cfg.enable {
     services = {
-      ollama = {
-        enable = true;
-      };
       n8n = {
         enable = true;
         openFirewall = true;

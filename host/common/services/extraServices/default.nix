@@ -2,6 +2,7 @@
   imports = [
     ./cachix.nix
     ./podman.nix
+    ./docker.nix
     ./gaming.nix
     ./n8n.nix
     ./ollama-gpu.nix

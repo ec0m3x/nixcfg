@@ -13,7 +13,6 @@
             scheme = "https";
           };
         };
-
         websecure = {
           address = ":443";
           asDefault = true;
@@ -51,6 +50,17 @@
             rule = "Host(`traefik.sks-concept.de`)";
             service = "api@internal";
           };
+          baserow = {
+            entryPoints = [ "websecure" ];
+            rule = "Host(`baserow.sks-concept.de`)";
+            service = "baserow";
+          };
+          portainer = {
+            entryPoints = [ "websecure" ];
+            rule = "Host(`docker.sks-concept.de`)";
+            service = "portainer";
+            tls = false;
+          };
         };
         services = {
           n8n = {
@@ -58,6 +68,24 @@
               servers = [
                 {
                   url = "http://localhost:5678";
+                }
+              ];
+            };
+          };
+          baserow = {
+            loadBalancer = {
+              servers = [
+                {
+                  url = "http://localhost:3000";
+                }
+              ];
+            };
+          };
+          portainer = {
+            loadBalancer = {
+              servers = [
+                {
+                  url = "https://localhost:9443";
                 }
               ];
             };
