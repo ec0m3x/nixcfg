@@ -1,25 +1,31 @@
-{ lib, ... }: {
+{ self, config, pkgs, lib, ... }:
 
-  # Create directories and run scripts for the containers
-  system.activationScripts.baserow = {
-      text = ''
-          # Create data directory for baserow
-          install -d -m 755 /home/ecomex/containers/baserow/data -o root -g root
-      '';
+{
+  age.secrets.baserow = {
+    file = "${self}/secrets/baserow.age";
+    mode = "600";
   };
-
-  virtualisation.oci-containers = {
-    containers."baserow" = {
-      image = "docker.io/baserow/baserow:1.29.3";
-      autoStart = true;
-      environment = {
-        "BASEROW_PUBLIC_URL" = "https://baserow.sks-concept.de";
-      };
-      ports = ["80:8585"];
-      volumes = [
-        "/home/ecomex/containers/baserow/data:/baserow/data"
-      ];
-      extraOptions = ["--network=host"];
+  
+  virtualisation.oci-containers.containers."baserow" = {
+    image = "baserow/baserow:1.29.3";
+    environmentFiles = [
+      config.age.secrets.baserow.path
+    ];
+    environment = {
+      "BASEROW_PUBLIC_URL" = "https://baserow.sks-concept.de";
+      "DATABASE_HOST" = "postgres";
+      "DATABASE_NAME" = "baserow";
+      "DATABASE_USER" = "ecomex";
+      
     };
+    volumes = [
+      "baserow_data:/baserow/data:rw"
+    ];
+    ports = [
+      "3000:80"
+    ];
+    extraOptions = [
+      "--network=localAI"
+    ];
   };
 }

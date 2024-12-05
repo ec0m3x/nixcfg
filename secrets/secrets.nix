@@ -15,6 +15,7 @@ in {
     "n1x-cs-1-cloudflare.age".publicKeys = users ++ [n1x-cs-1];
     "tailscalekey.age".publicKeys = users ++ [n1x-hd-1] ++ [n1x-hs-1] ++ [n1x-cs-1];
     "searx-key.age".publicKeys = users ++ [n1x-hs-1];
-    "n8n.age".publicKeys = users ++ [n1x-hd-1];
-    "postgres.age".publicKeys = users ++ [n1x-hd-1];
+    "n8n.age".publicKeys = users ++ [n1x-hd-1] ++ [n1x-cs-1];
+    "postgres.age".publicKeys = users ++ [n1x-hd-1] ++ [n1x-cs-1];
+    "baserow.age".publicKeys = users ++ [n1x-hd-1] ++ [n1x-cs-1];
 }
