@@ -14,7 +14,6 @@ in {
       n8n = {
         enable = true;
         openFirewall = true;
-        webhookUrl = "https://n8n.sks-concept.de";
       };
       qdrant = {
         enable = true;
