@@ -6,7 +6,7 @@
     # Containers
     ../common/containers/openwebui
     ../common/containers/invokeai
-    ../common/containers/n8n
+    #../common/containers/n8n
   ];
 
   # Extra services
@@ -14,7 +14,8 @@
   extraServices.docker.enable = true;
   extraServices.gaming.enable = true;
   extraServices.ollama-gpu.enable = true;
-  extraServices.n8n.enable = false;
+  extraServices.n8n.enable = true;
+  extraServices.postgres.enable = true;
   extraServices.libvirt.enable = true;
   extraServices.cachix.enable = true;
   extraServices.nfs-mount.enable = true;

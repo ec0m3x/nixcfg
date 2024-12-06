@@ -55,6 +55,11 @@
             rule = "Host(`baserow.sks-concept.de`)";
             service = "baserow";
           };
+          qdrant = {
+            entryPoints = [ "websecure" ];
+            rule = "Host(`vectordb.sks-concept.de`)";
+            service = "qdrant";
+          };
           portainer = {
             entryPoints = [ "websecure" ];
             rule = "Host(`docker.sks-concept.de`)";
@@ -77,6 +82,15 @@
               servers = [
                 {
                   url = "http://localhost:3000";
+                }
+              ];
+            };
+          };
+          qdrant = {
+            loadBalancer = {
+              servers = [
+                {
+                  url = "http://localhost:6333";
                 }
               ];
             };

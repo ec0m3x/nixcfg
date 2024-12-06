@@ -18,4 +18,5 @@ in {
     "n8n.age".publicKeys = users ++ [n1x-hd-1] ++ [n1x-cs-1];
     "postgres.age".publicKeys = users ++ [n1x-hd-1] ++ [n1x-cs-1];
     "baserow.age".publicKeys = users ++ [n1x-hd-1] ++ [n1x-cs-1];
+    "qdrant.age".publicKeys = users ++ [n1x-hd-1] ++ [n1x-cs-1];
 }

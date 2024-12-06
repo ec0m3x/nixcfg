@@ -76,6 +76,7 @@
         # Desktop machines
         n1x-hd-1 = libx.mkHost {
           hostname = "n1x-hd-1";
+          pkgsInput = unstable;
           desktop = "hyprland";
         };
         # Headless machines
