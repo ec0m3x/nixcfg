@@ -20,7 +20,6 @@
       volumes = [
         "/home/ecomex/containers/open-webui/data:/app/backend/data"
       ];
-      extraOptions = ["--network=host"];
     };
   };
 }
