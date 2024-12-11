@@ -32,6 +32,7 @@ in
       "search.${domain}".extraConfig = mkVHost "http://localhost:8181";
       "pdf.${domain}".extraConfig = mkVHost "http://localhost:9090";
       "invoke.${domain}".extraConfig = mkVHost "http://10.20.50.30:9090";
+      "chat.${domain}".extraConfig = mkVHost "http://10.20.50.30:3000";
     };
   };
 }
