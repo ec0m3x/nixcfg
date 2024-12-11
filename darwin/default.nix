@@ -143,7 +143,7 @@
         AutomaticallyInstallMacOSUpdates = false;
       };
       dock = {
-        orientation = "left";
+        orientation = "right";
         # TODO: Make this user-specific
         persistent-apps = [
 /*           "/Applications/Brave Browser.app"
