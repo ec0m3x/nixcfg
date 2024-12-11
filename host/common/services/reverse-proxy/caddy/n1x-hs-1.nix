@@ -31,7 +31,7 @@ in
       "vault.${domain}".extraConfig = mkVHost "http://localhost:8000";
       "search.${domain}".extraConfig = mkVHost "http://localhost:8181";
       "pdf.${domain}".extraConfig = mkVHost "http://localhost:9090";
-      "n8n-hs.${domain}".extraConfig = mkVHost "http://localhost:5678";
+      "invoke.${domain}".extraConfig = mkVHost "http://10.20.50.30:9090";
     };
   };
 }
