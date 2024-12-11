@@ -25,10 +25,12 @@ in
   home.packages = with pkgs; [
     audacity
     vscode
+    conda
     zotero
     thunderbird
     yt-dlp
     obs-studio
+    ffmpeg
     davinci-resolve
     spotify
     musikcube
