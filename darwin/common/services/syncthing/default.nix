@@ -1,9 +1,9 @@
 { ... }: {
   services.syncthing = {
     enable = true;
-    dataDir = "/home/${username}";
+    dataDir = "/Users/${username}";
     openDefaultPorts = true;
-    configDir = "/home/${username}/.config/syncthing";
+    configDir = "/Users/${username}/.config/syncthing";
     user = "${username}";
     group = "users";
     guiAddress = "0.0.0.0:8384";

@@ -5,6 +5,8 @@ _: {
       "firefox"
       "bitwarden"
       "zen-browser"
+      "obs"
+      "todoist"
     ];
   };
 }

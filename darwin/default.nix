@@ -69,12 +69,6 @@
   networking.hostName = hostname;
   networking.computerName = hostname;
 
-  programs = {
-    zsh = {
-      enable = true;
-    };
-  };
-
   # Enable TouchID for sudo authentication
   security.pam.enableSudoTouchIdAuth = true;
 

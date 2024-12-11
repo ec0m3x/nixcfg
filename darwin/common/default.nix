@@ -3,5 +3,7 @@
   imports = [
     ./apps
     ./features
+    ./services
+    ./shell
   ];
 }
