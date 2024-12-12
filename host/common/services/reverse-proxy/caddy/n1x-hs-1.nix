@@ -33,6 +33,7 @@ in
       "pdf.${domain}".extraConfig = mkVHost "http://localhost:9090";
       "invoke.${domain}".extraConfig = mkVHost "http://10.20.50.30:9090";
       "chat.${domain}".extraConfig = mkVHost "http://10.20.50.30:3000";
+      "n8n.${domain}".extraConfig = mkVHost "http://10.20.50.30:5678";
       "sync-hs-1.${domain}".extraConfig = mkVHost "http://localhost:8384";
       "sync-hs-2.${domain}".extraConfig = mkVHost "http://10.20.50.30:8384";
     };
