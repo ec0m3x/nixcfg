@@ -9,5 +9,6 @@
     yt-dlp
     ffmpeg
     telegram-desktop
+    virt-manager
   ];
 }
