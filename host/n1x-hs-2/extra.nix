@@ -1,7 +1,6 @@
 {
   imports = [
     ../common/services/extraServices
-    ../common/services/polkit.nix
     
     # Containers
     ../common/containers/openwebui
