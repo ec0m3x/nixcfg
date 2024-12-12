@@ -33,6 +33,7 @@
       yt-dlp
       ffmpeg
       vscode
+      virt-manager
     ];
   };
 
