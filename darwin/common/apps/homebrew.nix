@@ -23,12 +23,8 @@ _: {
       "WhatsApp" = 310633997;
     };
     taps = [
-      "jeffreywildman/homebrew-virt-manager"
     ];
     brews = [
-      "virt-manager" 
-      "virt-viewer"
-      "gsettings-desktop-schemas"
     ];
   };
 }
