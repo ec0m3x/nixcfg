@@ -7,6 +7,7 @@ _: {
       "zen-browser"
       "obs"
       "todoist"
+      "syncthing"
     ];
   };
 }

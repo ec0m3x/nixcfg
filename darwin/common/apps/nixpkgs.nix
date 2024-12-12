@@ -9,6 +9,5 @@
     yt-dlp
     ffmpeg
     telegram-desktop
-    
   ];
 }
