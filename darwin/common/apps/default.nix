@@ -2,6 +2,6 @@
 {
   imports = [
     ./homebrew.nix
-    ./nixpkgs.nix
+    ./fix-aliases.nix
   ];
 }

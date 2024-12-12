@@ -29,6 +29,10 @@
       mas
       nix-output-monitor
       nvd
+      mkalias
+      yt-dlp
+      ffmpeg
+      vscode
     ];
   };
 
@@ -144,21 +148,17 @@
       };
       dock = {
         orientation = "right";
-        # TODO: Make this user-specific
         persistent-apps = [
-/*           "/Applications/Brave Browser.app"
-          "/Applications/Wavebox.app"
-          "/Users/${username}/Applications/Home Manager Apps/Telegram.app"
-          "/Users/${username}/Applications/Home Manager Apps/Discord.app"
-          "/Users/${username}/Applications/Home Manager Apps/Cinny.app"
-          "/Applications/Halloy.app"
-          "/Users/${username}/Applications/Home Manager Apps/Visual Studio Code.app"
-          "/Users/${username}/Applications/Home Manager Apps/GitKraken.app"
-          "/Users/${username}/Applications/Home Manager Apps/Alacritty.app"
-          "/System/Applications/Music.app"
-          "/Applications/Heynote.app"
-          "/Applications/Joplin.app" */
-          "/System/Applications/Launchpad.app"
+          "/Applications/Discord.app"
+          "/Applications/Obsidian.app"
+          "/Applications/Zen Browser.appp"
+          "/System/Applications/WhatsApp.app"
+          "/Applications/Spotify.app"
+          "/Applications/Telegram Desktop.app"
+          "/Applications/Microsoft Teams.app"
+          "/Applications/Todoist.app"
+          "/System/Applications/Utilities/Terminal.app"
+          "/System/Applications/System Settings.app"
         ];
         show-recents = false;
         tilesize = 48;

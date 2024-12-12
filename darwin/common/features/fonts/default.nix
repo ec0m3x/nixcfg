@@ -6,6 +6,7 @@
         fonts = [
           "FiraCode"
           "NerdFontsSymbolsOnly"
+          "JetBrainsMono"
         ];
       })
       fira
