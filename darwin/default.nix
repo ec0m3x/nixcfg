@@ -149,10 +149,14 @@
       dock = {
         orientation = "right";
         persistent-apps = [
+          "/System/Applications/Launchpad.app"
           "/Applications/Discord.app"
           "/Applications/Obsidian.app"
-          "/Applications/Zen Browser.appp"
-          "/System/Applications/WhatsApp.app"
+          "/Applications/Zen Browser.app"
+          "/Applications/Nix Apps/Visual Studio Code.app"
+          "/Applications/WhatsApp.app"
+          "System/Applications/Mail.app"
+          "System/Applications/Calendar.app"
           "/Applications/Spotify.app"
           "/Applications/Telegram Desktop.app"
           "/Applications/Microsoft Teams.app"
@@ -171,7 +175,7 @@
       finder = {
         _FXShowPosixPathInTitle = true;
         FXEnableExtensionChangeWarning = false;
-        FXPreferredViewStyle = "Nlsv";
+        FXPreferredViewStyle = "clmv";
         AppleShowAllExtensions = true;
         AppleShowAllFiles = true;
         QuitMenuItem = true;
@@ -188,6 +192,7 @@
         askForPassword = true;
         askForPasswordDelay = 300;
       };
+      loginwindow.GuestEnabled = false;
       smb.NetBIOSName = hostname;
       trackpad = {
         Clicking = true;

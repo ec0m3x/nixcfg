@@ -19,7 +19,16 @@ _: {
       "Word" = 462054704;
       "Excel" = 462058435;
       "Powerpoint" = 462062816;
+      "OneNote" = 784801555;
       "WhatsApp" = 310633997;
     };
+    taps = [
+      "jeffreywildman/homebrew-virt-manager"
+    ];
+    brews = [
+      "virt-manager" 
+      "virt-viewer"
+      "gsettings-desktop-schemas"
+    ];
   };
 }

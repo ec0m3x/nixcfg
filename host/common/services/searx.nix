@@ -6,7 +6,7 @@
     settings = {
       server.port = 8181;
       server.bind_address = "0.0.0.0";
-      server.base_url = "https://search.sks-concept.de";
+      server.base_url = "https://search.hl.sks-concept.de";
       server.secret_key = "@SEARX_SECRET_KEY@";
     };
   };

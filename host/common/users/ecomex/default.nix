@@ -21,7 +21,7 @@ in
         "render"
         "lxd"
         "kvm"
-        "libvirt"
+        "libvirtd"
       ];
 
     openssh.authorizedKeys.keys = [
