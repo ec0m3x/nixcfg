@@ -5,6 +5,8 @@
     # Containers
     ../common/containers/openwebui
     ../common/containers/invokeai
+    ../common/containers/baserow
+
   ];
 
   # Extra services

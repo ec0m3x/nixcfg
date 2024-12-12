@@ -4,7 +4,6 @@
     ../common/services/minecraft.nix
     ../common/services/reverse-proxy/traefik
     ../common/containers/n8n
-    ../common/containers/baserow
   ];
 
   # Extra services
