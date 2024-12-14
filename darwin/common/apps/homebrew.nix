@@ -8,11 +8,13 @@ _: {
       "spotify"
       "telegram-desktop"
       "microsoft-teams"
+      "microsoft-remote-desktop"
       "bitwarden"
       "zen-browser"
       "obs"
       "todoist"
       "syncthing"
+      "steam"
     ];
     masApps = {
       "Yoink" = 457622435;
