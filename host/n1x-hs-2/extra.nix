@@ -21,4 +21,6 @@
   extraServices.nfs-mount.enable = false;
   extraServices.syncthing.enable = true;
 
+  networking.firewall.allowedTCPPorts = [ 8083 ];
+
 }
