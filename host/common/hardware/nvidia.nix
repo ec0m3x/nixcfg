@@ -6,6 +6,7 @@
 
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"];
+  hardware.graphics.enable = true;
 
   hardware.nvidia = {
 
@@ -35,13 +36,13 @@
 	  # accessible via `nvidia-settings`.
     nvidiaSettings = true;
 
-    prime = {
+/*     prime = {
       sync.enable = true;
       nvidiaBusId = "PCI:10:0:0";
       amdgpuBusId = "PCI:30:0:0"; #For AMD GPU
 	  };
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.stable; */
   };
   
   hardware.nvidia-container-toolkit.enable = true;

@@ -21,6 +21,10 @@
   extraServices.nfs-mount.enable = false;
   extraServices.syncthing.enable = true;
 
+  # Network 
   networking.firewall.allowedTCPPorts = [ 8083 ];
-
+  networking.interfaces.enp42s0.wakeOnLan = {
+    enable = true;
+    policy = [ "magic" ];
+  };
 }
