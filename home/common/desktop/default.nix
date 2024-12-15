@@ -31,13 +31,10 @@ in
     yt-dlp
     obs-studio
     ffmpeg
-    davinci-resolve
     spotify
     musikcube
     vesktop
     bitwarden-desktop
-    skanlite
-    brave
     # bambu-studio
     catppuccin-gtk
     desktop-file-utils

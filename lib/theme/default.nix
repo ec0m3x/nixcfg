@@ -58,10 +58,10 @@ rec {
       name = "Inter";
       package = pkgs.inter;
     };
-    monospace = {
+/*     monospace = {
       name = "MesloLGSDZ Nerd Font Mono";
       package = pkgs.nerd-fonts.meslo-lg;
-    };
+    }; */
     emoji = {
       name = "Joypixels";
       package = pkgs.joypixels;

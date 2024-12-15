@@ -36,7 +36,7 @@ in
       theme.fonts.default.package
       theme.fonts.emoji.package
       theme.fonts.iconFont.package
-      theme.fonts.monospace.package
+      #theme.fonts.monospace.package
     ];
 
     # Use fonts specified by user rather than default ones
@@ -53,7 +53,7 @@ in
           "${theme.fonts.default.name}"
           "${theme.fonts.emoji.name}"
         ];
-        monospace = [ "${theme.fonts.monospace.name}" ];
+        #monospace = [ "${theme.fonts.monospace.name}" ];
         emoji = [ "${theme.fonts.emoji.name}" ];
       };
     };
