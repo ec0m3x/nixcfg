@@ -33,7 +33,6 @@
       yt-dlp
       ffmpeg
       vscode
-      virt-manager
     ];
   };
 
@@ -151,18 +150,18 @@
         orientation = "right";
         persistent-apps = [
           "/System/Applications/Launchpad.app"
+          "/System/Applications/Utilities/Terminal.app"
           "/Applications/Discord.app"
           "/Applications/Obsidian.app"
-          "/Applications/Zen Browser.app"
-          "/Applications/Nix Apps/Visual Studio Code.app"
+          "/Applications/Safari.app"
           "/Applications/WhatsApp.app"
-          "System/Applications/Mail.app"
-          "System/Applications/Calendar.app"
+          "/Applications/Microsoft Outlook.app"
+          "/Applications/Nix\ Apps/Visual Studio Code.app"
           "/Applications/Spotify.app"
+          "/Applications/Steam.app"
           "/Applications/Telegram Desktop.app"
           "/Applications/Microsoft Teams.app"
           "/Applications/Todoist.app"
-          "/System/Applications/Utilities/Terminal.app"
           "/System/Applications/System Settings.app"
         ];
         show-recents = false;

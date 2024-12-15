@@ -9,12 +9,12 @@ _: {
       "telegram-desktop"
       "microsoft-teams"
       "microsoft-remote-desktop"
-      "bitwarden"
       "zen-browser"
       "obs"
       "todoist"
       "syncthing"
       "steam"
+      "moonlight"
     ];
     masApps = {
       "Yoink" = 457622435;
@@ -22,7 +22,9 @@ _: {
       "Excel" = 462058435;
       "Powerpoint" = 462062816;
       "OneNote" = 784801555;
+      "Outlook" = 985367838;
       "WhatsApp" = 310633997;
+      "Bitwarden" = 1352778147;
     };
     taps = [
     ];
