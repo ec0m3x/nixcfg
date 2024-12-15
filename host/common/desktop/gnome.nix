@@ -21,4 +21,7 @@
     displayManager.autoLogin.user = "ecomex";
     displayManager.defaultSession = "gnome";
   };
+
+  systemd.services."getty@tty1".enable = false;
+  systemd.services."autovt@tty1".enable = false;
 }

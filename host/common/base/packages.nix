@@ -28,5 +28,6 @@
     vim
     wget
     yq-go
+    ethtool
   ];
 }
