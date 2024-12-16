@@ -2,7 +2,7 @@ _: {
   programs.fzf = {
     enable = true;
     enableFishIntegration = true;
-    catppuccin.enable = true;
+    catppuccin.enable = false;
 
     changeDirWidgetOptions = [ "--preview 'tree -C {} | head -200'" ];
 
