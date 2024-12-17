@@ -13,7 +13,7 @@ in {
     services = {
       ollama = {
         enable = true;
-        host = "[::]";
+        host = "[0.0.0.0]";
         acceleration = "cuda";
         openFirewall = true;
       };
