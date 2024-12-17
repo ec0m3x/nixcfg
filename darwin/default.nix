@@ -23,9 +23,22 @@
 
   environment = {
     shells = [ pkgs.zsh ];
+    shellAliases = {
+        ls = "eza -gl --git --color=automatic";
+        tree = "eza --tree";
+        cat = "bat";
+        wakeup = "wakeonlan 04:7C:16:16:FD:FF";
+        rld = "darwin-rebuild switch --flake ~/Projects/nixcfg";
+        cleanup-nix = "nix-collect-garbage -d";
+        gac = "git add -A  && git commit -a";
+        gp = "git push";
+        gst = "git status -sb";
+    };
     systemPackages = with pkgs; [
       git
       m-cli
+      eza
+      bat
       mas
       nix-output-monitor
       nvd
@@ -33,6 +46,7 @@
       yt-dlp
       ffmpeg
       vscode
+      wakeonlan
     ];
   };
 
@@ -152,6 +166,7 @@
           "/System/Applications/Launchpad.app"
           "/System/Applications/Utilities/Terminal.app"
           "/Applications/Discord.app"
+          "/Applications/Zen Browser.app"
           "/Applications/Obsidian.app"
           "/Applications/Safari.app"
           "/Applications/WhatsApp.app"

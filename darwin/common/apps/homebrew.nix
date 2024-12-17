@@ -15,6 +15,7 @@ _: {
       "syncthing"
       "steam"
       "moonlight"
+      "google-drive"
     ];
     masApps = {
       "Yoink" = 457622435;
