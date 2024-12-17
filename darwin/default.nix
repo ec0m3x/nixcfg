@@ -38,6 +38,8 @@
       git
       m-cli
       eza
+      fastfetch
+      bottom
       bat
       mas
       nix-output-monitor
