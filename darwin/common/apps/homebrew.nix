@@ -16,6 +16,7 @@ _: {
       "steam"
       "moonlight"
       "google-drive"
+      "wave"
     ];
     masApps = {
       "Yoink" = 457622435;
