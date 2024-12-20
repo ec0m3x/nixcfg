@@ -3,7 +3,6 @@
   programs.neovim = {
     enable = true;
     package = pkgs.neovim-unwrapped;
-    catppuccin.enable = false;
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;

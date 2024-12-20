@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  unstable,
   ...
 }:
 with lib; let
@@ -13,6 +14,7 @@ in {
     services = {
       ollama = {
         enable = true;
+        package = pkgs.unstable.ollama;
         host = "[0.0.0.0]";
         acceleration = "cuda";
         openFirewall = true;

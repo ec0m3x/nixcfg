@@ -20,6 +20,8 @@
   extraServices.cachix.enable = true;
   extraServices.nfs-mount.enable = false;
   extraServices.syncthing.enable = true;
+  extraServices.cockpit.enable = true;
+  
 
   # Network 
   networking.firewall.allowedTCPPorts = [ 8083 ];

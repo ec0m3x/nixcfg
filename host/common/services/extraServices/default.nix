@@ -1,6 +1,7 @@
 {
   imports = [
     ./cachix.nix
+    ./cockpit.nix
     ./podman.nix
     ./docker.nix
     ./gaming.nix
