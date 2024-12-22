@@ -73,7 +73,6 @@
         };
         n1x-hs-2 = libx.mkHost {
           hostname = "n1x-hs-2";
-          desktop = "gnome";
         };
         n1x-cs-1 = libx.mkHost {
           hostname = "n1x-cs-1";

@@ -1,30 +1,26 @@
 {
   imports = [
     ../common/services/extraServices
-
-    # Hardware
-    ../common/hardware/xbox-controller.nix
     
     # Containers
     ../common/containers/openwebui
     ../common/containers/invokeai
     ../common/containers/baserow
-
   ];
 
   # Extra services
   extraServices.podman.enable = false;
   extraServices.docker.enable = true;
-  extraServices.gaming.enable = true;
-  extraServices.ollama-gpu.enable = false;
-  extraServices.n8n.enable = false;
+  extraServices.gaming.enable = false;
+  extraServices.ollama-gpu.enable = true;
+  extraServices.n8n.enable = true;
   extraServices.postgres.enable = false;
   extraServices.libvirt.enable = true;
   extraServices.cachix.enable = true;
   extraServices.nfs-mount.enable = false;
   extraServices.syncthing.enable = true;
   extraServices.cockpit.enable = true;
-  extraServices.sunshine.enable = true;
+  extraServices.sunshine.enable = false;
   
 
   # Network 
