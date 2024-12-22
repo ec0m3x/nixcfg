@@ -61,12 +61,6 @@
     {
       # nix build .#homeConfigurations."ecomex@n1x-hd-1".activationPackage
       homeConfigurations = {
-        # Desktop machines
-        "${username}@n1x-hd-1" = libx.mkHome {
-          hostname = "n1x-hd-1";
-          desktop = "hyprland";
-        };
-        # Headless machines
         "${username}@n1x-hs-1" = libx.mkHome { hostname = "n1x-hs-1"; };
         "${username}@n1x-hs-2" = libx.mkHome { hostname = "n1x-hs-2"; };
         "${username}@n1x-cs-1" = libx.mkHome { hostname = "n1x-cs-1"; };
@@ -74,18 +68,12 @@
 
       # nix build .#nixosConfigurations.n1x-hd-1.config.system.build.toplevel
       nixosConfigurations = {
-        # Desktop machines
-        n1x-hd-1 = libx.mkHost {
-          hostname = "n1x-hd-1";
-          pkgsInput = unstable;
-          desktop = "hyprland";
-        };
-        # Headless machines
         n1x-hs-1 = libx.mkHost {
           hostname = "n1x-hs-1";
         };
         n1x-hs-2 = libx.mkHost {
           hostname = "n1x-hs-2";
+          desktop = "gnome";
         };
         n1x-cs-1 = libx.mkHost {
           hostname = "n1x-cs-1";

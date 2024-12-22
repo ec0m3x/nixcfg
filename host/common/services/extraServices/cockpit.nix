@@ -15,6 +15,11 @@ in {
         enable = true;
         port = 9595;
         openFirewall = true;
+        settings = {
+          WebService = {
+          AllowUnencrypted = true;
+          };
+        };
       };
     };
   };
