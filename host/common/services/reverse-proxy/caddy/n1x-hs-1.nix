@@ -35,7 +35,7 @@ in
       "chat.${domain}".extraConfig = mkVHost "http://10.20.50.30:3000";
       "n8n.${domain}".extraConfig = mkVHost "http://10.20.50.30:5678";
       "br.${domain}".extraConfig = mkVHost "http://10.20.50.30:3001";
-      "steam.${domain}".extraConfig = mkVHost "http://10.20.50.30:8083";
+      "cockpit.${domain}".extraConfig = mkVHost "http://10.20.50.30:9595";
       "sync-hs-1.${domain}".extraConfig = mkVHost "http://localhost:8384";
       "sync-hs-2.${domain}".extraConfig = mkVHost "http://10.20.50.30:8384";
     };

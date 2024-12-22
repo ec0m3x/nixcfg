@@ -1,6 +1,9 @@
 {
   imports = [
     ../common/services/extraServices
+
+    # Hardware
+    ../common/hardware/xbox-controller.nix
     
     # Containers
     ../common/containers/openwebui

@@ -3,9 +3,8 @@
   disks ? [
     "/dev/nvme0n1"
     "/dev/sda"
-    "/dev/sdb"
   ],
-  ... 
+  ...
 }:
 let
   defaultBtrfsOpts = [
@@ -17,52 +16,70 @@ let
   ];
 in
 {
+  environment.etc = {
+    "crypttab".text = ''
+      data  /dev/disk/by-partlabel/data  /etc/data.keyfile
+    '';
+  };
+
   disko.devices = {
     disk = {
-      # 512GB root/boot drive. Configured with:
+      # 1TB root/boot drive. Configured with:
       # - A FAT32 ESP partition for systemd-boot
-      # - Multiple btrfs subvolumes for the installation of nixos
-      nvme = {
-        device = builtins.elemAt disks 0;
+      # - A LUKS container which containers multiple btrfs subvolumes for nixos install
+      nvme0n1 = {
         type = "disk";
+        device = builtins.elemAt disks 0;
         content = {
           type = "gpt";
           partitions = {
             ESP = {
+              label = "boot";
+              name = "ESP";
               size = "512M";
               type = "EF00";
               content = {
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
+                mountOptions = [
+                  "defaults"
+                ];
               };
             };
-            root = {
+            luks = {
               size = "100%";
               content = {
-                type = "btrfs";
-                # Override existing partition
-                extraArgs = [ "-f" ];
-                subvolumes = {
-                  "@" = {
-                    mountpoint = "/";
-                    mountOptions = defaultBtrfsOpts;
-                  };
-                  "@nix" = {
-                    mountpoint = "/nix";
-                    mountOptions = defaultBtrfsOpts;
-                  };
-                  "@home" = {
-                    mountpoint = "/home";
-                    mountOptions = defaultBtrfsOpts;
-                  };
-                  "@var" = {
-                    mountpoint = "/var";
-                    mountOptions = defaultBtrfsOpts;
-                  };
-                  "@snapshots" = {
-                    mountpoint = "/.snapshots";
-                    mountOptions = defaultBtrfsOpts;
+                type = "luks";
+                name = "cryptroot";
+                extraOpenArgs = [
+                  "--allow-discards"
+                ];
+                content = {
+                  type = "btrfs";
+                  # Override existing partition
+                  extraArgs = [ "-f" ];
+                  subvolumes = {
+                    "@" = {
+                      mountpoint = "/";
+                      mountOptions = defaultBtrfsOpts;
+                    };
+                    "@nix" = {
+                      mountpoint = "/nix";
+                      mountOptions = defaultBtrfsOpts;
+                    };
+                    "@home" = {
+                      mountpoint = "/home";
+                      mountOptions = defaultBtrfsOpts;
+                    };
+                    "@var" = {
+                      mountpoint = "/var";
+                      mountOptions = defaultBtrfsOpts;
+                    };
+                    "@snapshots" = {
+                      mountpoint = "/.snapshots";
+                      mountOptions = defaultBtrfsOpts;
+                    };
                   };
                 };
               };
@@ -80,37 +97,27 @@ in
               size = "100%";
               label = "data";
               content = {
-                type = "btrfs";
-                # Override existing partition
-                extraArgs = [ "-f" ];
-                subvolumes = {
-                  "@data" = {
-                    mountpoint = "/mnt/data";
-                    mountOptions = defaultBtrfsOpts;
-                  };
+                type = "luks";
+                name = "data";
+                settings = {
+                  # Make sure there is no trailing newline in keyfile if used for interactive unlock.
+                  # Use `echo -n "password" > /tmp/secret.key`
+                  keyFile = "/tmp/data.keyfile";
+                  allowDiscards = true;
                 };
-              };
-            };
-          };
-        };
-      };
-      sdb = {
-        device = builtins.elemAt disks 2;
-        type = "disk";
-        content = {
-          type = "gpt";
-          partitions = {
-            ai = {
-              size = "100%";
-              label = "ai-disk";
-              content = {
-                type = "btrfs";
-                # Override existing partition
-                extraArgs = [ "-f" ];
-                subvolumes = {
-                  "@ai" = {
-                    mountpoint = "/mnt/ai-disk";
-                    mountOptions = defaultBtrfsOpts;
+
+                # Don't try to unlock this drive early in the boot.
+                initrdUnlock = false;
+
+                content = {
+                  type = "btrfs";
+                  # Override existing partition
+                  extraArgs = [ "-f" ];
+                  subvolumes = {
+                    "@data" = {
+                      mountpoint = "/home/ecomex/data";
+                      mountOptions = defaultBtrfsOpts;
+                    };
                   };
                 };
               };
