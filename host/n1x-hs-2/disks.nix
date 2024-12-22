@@ -87,44 +87,6 @@ in
           };
         };
       };
-      sda = {
-        device = builtins.elemAt disks 1;
-        type = "disk";
-        content = {
-          type = "gpt";
-          partitions = {
-            data = {
-              size = "100%";
-              label = "data";
-              content = {
-                type = "luks";
-                name = "data";
-                settings = {
-                  # Make sure there is no trailing newline in keyfile if used for interactive unlock.
-                  # Use `echo -n "password" > /tmp/secret.key`
-                  keyFile = "/tmp/data.keyfile";
-                  allowDiscards = true;
-                };
-
-                # Don't try to unlock this drive early in the boot.
-                initrdUnlock = false;
-
-                content = {
-                  type = "btrfs";
-                  # Override existing partition
-                  extraArgs = [ "-f" ];
-                  subvolumes = {
-                    "@data" = {
-                      mountpoint = "/home/ecomex/data";
-                      mountOptions = defaultBtrfsOpts;
-                    };
-                  };
-                };
-              };
-            };
-          };
-        };
-      };
     };
   };
 }
