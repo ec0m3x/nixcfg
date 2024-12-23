@@ -11,7 +11,7 @@
 
   # Extra services
   extraServices.docker.enable = true;
-  extraServices.ollama-gpu.enable = true;
+  extraServices.ollama-gpu.enable = false;
   extraServices.cachix.enable = true;
   extraServices.syncthing.enable = true;
 
