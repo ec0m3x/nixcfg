@@ -2,11 +2,17 @@
 
 {
   # Network
-  system.activationScripts.createDockerNetworkN8n = lib.mkAfter ''
+  system.activationScripts.createDockerNetworkBaserow = lib.mkAfter ''
     if ! /run/current-system/sw/bin/docker network inspect baserow >/dev/null 2>&1; then
       /run/current-system/sw/bin/docker network create baserow
     fi
   '';
+  # Create directories and run scripts for the containers
+  system.activationScripts = {
+      script.text = ''
+          install -d -m 755 /home/ecomex/containers/baserow/baserow_data -o root -g root
+      '';
+  };
 
   # Containers
   virtualisation.oci-containers.containers."baserow" = {

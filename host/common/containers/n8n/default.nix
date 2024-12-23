@@ -24,7 +24,7 @@
     environment = {
       "GENERIC_TIMEZONE" = "Europe/Berlin";
       "TZ" = "Europe/Berlin";
-      "WEBHOOK_URL" = "https://n8n.sks-concept.de";
+      "WEBHOOK_URL" = "https://n8n-hl.sks-concept.de";
     };
     volumes = [
       "n8n_data:/home/node/.n8n"
@@ -34,6 +34,7 @@
     ];
     extraOptions = [
       "--network=n8n"
+      "--add-host=host.docker.internal:host-gateway"
     ];
   };
 
