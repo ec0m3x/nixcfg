@@ -38,6 +38,7 @@ in
       "cockpit.${domain}".extraConfig = mkVHost "http://10.20.50.31:9595";
       "sync-hs-1.${domain}".extraConfig = mkVHost "http://localhost:8384";
       "sync-hs-2.${domain}".extraConfig = mkVHost "http://10.20.50.31:8384";
+      "nas.${domain}".extraConfig = mkVHost "http://10.20.50.32:80";
     };
   };
 }

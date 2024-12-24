@@ -13,7 +13,7 @@ in {
 
     # Mount the NFS share
     fileSystems."/home/ecomex/nfs" = {
-      device = "10.20.50.130:/data";
+      device = "10.20.50.40:/data";
       fsType = "nfs";
       options = [ 
         "x-systemd.automount"
@@ -28,7 +28,7 @@ in {
     systemd.mounts = [
       {
         where = "/home/ecomex/nfs";
-        what = "10.20.50.130:/data";
+        what = "10.20.50.40:/data";
         requires = [ "network-online.target" ];
         after = [ "network-online.target" ];
       }
