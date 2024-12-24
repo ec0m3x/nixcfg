@@ -17,6 +17,7 @@ _: {
       "moonlight"
       "google-drive"
       "wave"
+      "parsec"
     ];
     masApps = {
       "Yoink" = 457622435;
