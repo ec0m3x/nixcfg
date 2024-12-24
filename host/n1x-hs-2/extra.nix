@@ -15,6 +15,9 @@
   extraServices.cachix.enable = true;
   extraServices.syncthing.enable = true;
 
+  # Qemu
+  services.qemuGuest.enable = true;
+
 /*   # Network 
   networking.firewall.allowedTCPPorts = [ 8083 ];
   networking.interfaces.enp42s0.wakeOnLan = {
