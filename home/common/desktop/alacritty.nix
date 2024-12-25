@@ -5,7 +5,6 @@ in
 {
   programs.alacritty = {
     enable = true;
-    catppuccin.enable = true;
     settings = {
       env = {
         TERM = "alacritty";
@@ -30,4 +29,5 @@ in
       };
     };
   };
+  catppuccin.alacritty.enable = true;
 }

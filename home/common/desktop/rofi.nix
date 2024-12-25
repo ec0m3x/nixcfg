@@ -3,10 +3,6 @@
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
-    catppuccin = {
-      enable = true;
-      flavor = "mocha";
-    };
     terminal = "${pkgs.alacritty}/bin/alacritty";
 
     extraConfig = {
@@ -18,6 +14,10 @@
       display-drun = "   Apps ";
       sidebar-mode = true;
     };
+  };
+  catppuccin.rofi = {
+    enable = true;
+    flavor = "mocha";
   };
 
   home.packages = [ pkgs.bemoji ];
