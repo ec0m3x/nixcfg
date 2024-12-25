@@ -60,7 +60,7 @@ rec {
     };
     monospace = {
       name = "MesloLGSDZ Nerd Font Mono";
-      package = pkgs.nerd-fonts.meslo-lg;
+      package = pkgs.meslo-lg;
     };
     emoji = {
       name = "Joypixels";
