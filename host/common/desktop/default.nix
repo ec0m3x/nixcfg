@@ -36,7 +36,7 @@ in
       theme.fonts.default.package
       theme.fonts.emoji.package
       theme.fonts.iconFont.package
-      #theme.fonts.monospace.package
+      theme.fonts.monospace.package
     ];
 
     # Use fonts specified by user rather than default ones
