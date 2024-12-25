@@ -4,7 +4,7 @@ let
   syncthing = {
     hosts = [
       "n1x-hs-1"
-      "n1x-hs-2"
+      "n1x-ds-1"
     ];
     tcpPorts = [ 22000 ];
     udpPorts = [
