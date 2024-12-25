@@ -1,20 +1,24 @@
   { pkgs, lib, ... }: {
 
   boot = {
+    
     initrd = {
       availableKernelModules = [ 
-        "ata_piix"
-        "uhci_hcd"
-        "virtio_pci"
-        "virtio_blk" 
+        "xhci_pci"
+        "ahci"
+        "nvme"
+        "usb_storage"
+        "usbhid"
+        "sd_mod" 
       ];
     };
     kernelModules = [
       "kvm-amd"
     ];
-  };
+    
     # Use the latest Linux kernel, rather than the default LTS
-    #kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_latest;
+  };
 }
 
 
