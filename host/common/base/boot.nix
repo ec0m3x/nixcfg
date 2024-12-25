@@ -12,7 +12,7 @@
       "net.ipv6.conf.all.forwarding" = 1;
     };
 
-    loader = if hostname == "n1x-cs-1" || hostname == "n1x-hs-2"
+    loader = if hostname == "n1x-cs-1" || hostname == "n1x-ds-1"
     then {
       grub = {
         efiSupport = true;

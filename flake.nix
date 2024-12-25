@@ -68,11 +68,14 @@
 
       # nix build .#nixosConfigurations.n1x-hd-1.config.system.build.toplevel
       nixosConfigurations = {
+        #Desktop
+        n1x-hs-2 = libx.mkHost {
+          hostname = "n1x-ds-1";
+          desktop = "hyprland";
+        };
+        #Headless machines
         n1x-hs-1 = libx.mkHost {
           hostname = "n1x-hs-1";
-        };
-        n1x-hs-2 = libx.mkHost {
-          hostname = "n1x-hs-2";
         };
         n1x-cs-1 = libx.mkHost {
           hostname = "n1x-cs-1";

@@ -11,7 +11,7 @@ in
     ./fastfetch.nix
     ./starship.nix
     ./tmux.nix
-    ./vim.nix
+    #./vim.nix
     ./xdg.nix
     ./zsh.nix
   ];
@@ -36,6 +36,5 @@ in
 
   home.packages = with pkgs; [
     age
-    sops
   ];
 }
