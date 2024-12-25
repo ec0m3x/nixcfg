@@ -12,7 +12,7 @@ in
     mako = {
       enable = true;
       actions = true;
-      anchor = if hostname == "n1x-hd-1" then "top-center" else "top-right";
+      anchor = if hostname == "n1x-ds-1" then "top-center" else "top-right";
       borderRadius = 8;
       borderSize = 1;
       defaultTimeout = 10000;

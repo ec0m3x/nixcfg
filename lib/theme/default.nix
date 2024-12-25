@@ -17,7 +17,7 @@ rec {
     size = "standard";
   };
 
-  wallpaper = if hostname == "n1x-hd-1" then ./wallpapers/mountains.png else ./wallpapers/jokulsarlon.png;
+  wallpaper = if hostname == "n1x-ds-1" then ./wallpapers/mountains.png else ./wallpapers/jokulsarlon.png;
 
   gtkTheme = {
     name = "catppuccin-macchiato-blue-standard";

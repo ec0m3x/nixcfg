@@ -109,7 +109,7 @@ in
         position = "top";
         layer = "top";
         height = 18;
-        width = if hostname == "n1x-hd-1" then 2560 else null;
+        width = if hostname == "n1x-ds-1" then 2560 else null;
         passthrough = false;
         gtk-layer-shell = true;
 

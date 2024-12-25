@@ -59,7 +59,7 @@
       };
     in
     {
-      # nix build .#homeConfigurations."ecomex@n1x-hd-1".activationPackage
+      # nix build .#homeConfigurations."ecomex@n1x-ds-1".activationPackage
       homeConfigurations = {
         # Desktop
         "${username}@n1x-ds-1" = libx.mkHome { 
@@ -71,7 +71,7 @@
         "${username}@n1x-cs-1" = libx.mkHome { hostname = "n1x-cs-1"; };
       };
 
-      # nix build .#nixosConfigurations.n1x-hd-1.config.system.build.toplevel
+      # nix build .#nixosConfigurations.n1x-ds-1.config.system.build.toplevel
       nixosConfigurations = {
         #Desktop
         n1x-ds-1 = libx.mkHost {
