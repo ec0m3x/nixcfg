@@ -21,6 +21,8 @@ in
     firefox.enable = true;
     mpv.enable = true;
   };
+  
+  catppuccin.enable = true;
 
   home.packages = with pkgs; [
     audacity
@@ -35,7 +37,6 @@ in
     musikcube
     vesktop
     bitwarden-desktop
-    # bambu-studio
     catppuccin-gtk
     desktop-file-utils
     (google-chrome.override {
@@ -57,7 +58,7 @@ in
     todoist-electron
     xdg-utils
     xorg.xlsclients
-    inputs.zen-browser.packages."${system}".specific
+    inputs.zen-browser.packages."${system}".default
   ];
 
   fonts.fontconfig.enable = true;

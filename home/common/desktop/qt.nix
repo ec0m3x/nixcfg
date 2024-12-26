@@ -5,7 +5,8 @@ in
 {
   qt = {
     enable = true;
-    platformTheme.name = "gtk";
+    platformTheme.name = "kvantum";
+    style.name = "kvantum";
   };
 
   home = {

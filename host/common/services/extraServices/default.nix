@@ -8,9 +8,10 @@
     ./n8n.nix
     ./postgres.nix
     ./ollama-gpu.nix
-    ./libvirt.nix
+    ./vfio.nix
     ./nfs-mount.nix
     ./syncthing.nix
     ./sunshine.nix
+    ./gamedisk.nix
   ];
 }

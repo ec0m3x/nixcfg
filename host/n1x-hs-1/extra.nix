@@ -11,11 +11,5 @@
   ];
 
   # Extra services
-  extraServices.podman.enable = false;
-  extraServices.gaming.enable = false;
-  extraServices.n8n.enable = false;
-  extraServices.libvirt.enable = false;
-  extraServices.cachix.enable = false;
   extraServices.syncthing.enable = true;
-
 }

@@ -7,9 +7,7 @@
   ];
 
   # Extra services
-  extraServices.podman.enable = false;
   extraServices.docker.enable = true;
-  extraServices.n8n.enable = false;
 
 
 }

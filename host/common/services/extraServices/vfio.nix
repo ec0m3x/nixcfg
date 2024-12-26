@@ -6,9 +6,9 @@
   ...
 }:
 with lib; let
-  cfg = config.extraServices.libvirt;
+  cfg = config.extraServices.vfio;
 in {
-  options.extraServices.libvirt.enable = mkEnableOption "enable virtualisation";
+  options.extraServices.vfio.enable = mkEnableOption "enable virtualisation";
 
   config = mkIf cfg.enable {  
     environment.systemPackages = with pkgs; [ 
