@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs,  ... }:
 
 {
   programs.vscode = {
@@ -7,6 +7,7 @@
       vscode-marketplace.bbenoist.nix
       vscode-marketplace.catppuccin.catppuccin-vsc-icons
       vscode-marketplace.continue.continue
+      vscode-marketplace.ms-azuretools.vscode-docker
       vscode-marketplace.dart-code.dart-code
       vscode-marketplace.dart-code.flutter
       vscode-marketplace.github.copilot
@@ -17,6 +18,7 @@
       vscode-marketplace.pkief.material-product-icons
       vscode-marketplace.ms-python.python
       vscode-marketplace.vscode-icons-team.vscode-icons
+      vscode-marketplace.catppuccin.catppuccin-vsc
     ];
     mutableExtensionsDir = true;
   };

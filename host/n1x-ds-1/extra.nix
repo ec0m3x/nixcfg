@@ -3,15 +3,15 @@
     ../common/services/extraServices
     
     # Containers
-    #../common/containers/openwebui
-    #../common/containers/invokeai
-    #../common/containers/baserow
-    #../common/containers/n8n
+    ../common/containers/openwebui
+    ../common/containers/invokeai
+    ../common/containers/baserow
+    ../common/containers/n8n
   ];
 
   # Extra services
   extraServices.docker.enable = true;
-  #extraServices.ollama-gpu.enable = true;
+  extraServices.ollama-gpu.enable = true;
   extraServices.cachix.enable = true;
   extraServices.syncthing.enable = true;
   extraServices.gaming.enable = true;
@@ -26,4 +26,7 @@
     enable = true;
     policy = [ "magic" ];
   };
+
+  # Time
+  time.hardwareClockInLocalTime = true;
 }

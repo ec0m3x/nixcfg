@@ -16,6 +16,7 @@ in {
         where = "/home/ecomex/gamedisk";           # Ziel-Mountpunkt
         type = "ntfs-3g";                    # NTFS mit ntfs-3g
         options = "defaults,nofail,uid=1000,gid=1000,umask=022"; # Optionen
+        wantedBy = [ "multi-user.target" ];
       }
     ];
   };
