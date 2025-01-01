@@ -18,6 +18,7 @@ _: {
       "google-drive"
       "wave"
       "parsec"
+      "nvidia-geforce-now"
     ];
     masApps = {
       "Yoink" = 457622435;
