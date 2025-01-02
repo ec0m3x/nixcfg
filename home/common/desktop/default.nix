@@ -37,6 +37,7 @@ in
     musikcube
     vesktop
     bitwarden-desktop
+    libreoffice-fresh
     catppuccin-gtk
     desktop-file-utils
     (google-chrome.override {
