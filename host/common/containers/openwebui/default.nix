@@ -21,7 +21,8 @@
         "/home/ecomex/containers/open-webui/data:/app/backend/data"
       ];
       extraOptions = [
-        "--add-host=host.docker.internal:host-gateway"
+        #"--add-host=host.docker.internal:host-gateway"
+        "--network=local-ai"
       ];
     };
   };

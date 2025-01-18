@@ -12,9 +12,9 @@
     mode = "600";
   };
   # Network
-  system.activationScripts.createDockerNetworkN8n = lib.mkAfter ''
-    if ! /run/current-system/sw/bin/docker network inspect n8n >/dev/null 2>&1; then
-      /run/current-system/sw/bin/docker network create n8n
+  system.activationScripts.createDockerNetwork = lib.mkAfter ''
+    if ! /run/current-system/sw/bin/docker network inspect local-ai >/dev/null 2>&1; then
+      /run/current-system/sw/bin/docker network create local-ai
     fi
   '';
 
@@ -33,8 +33,8 @@
       "5678:5678/tcp"
     ];
     extraOptions = [
-      "--network=n8n"
-      "--add-host=host.docker.internal:host-gateway"
+      "--network=local-ai"
+      #"--add-host=host.docker.internal:host-gateway"
     ];
   };
 
@@ -50,7 +50,7 @@
       "/home/${username}/containers/postgres/postgres_data:/var/lib/postgresql/data:rw"
     ];
     extraOptions = [
-      "--network=n8n"
+      "--network=local-ai"
     ];
   };
 
@@ -66,7 +66,7 @@
       "6333:6333/tcp"
     ];
     extraOptions = [
-      "--network=n8n"
+      "--network=local-ai"
     ];
   };
 }

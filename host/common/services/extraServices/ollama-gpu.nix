@@ -14,11 +14,13 @@ in {
     services = {
       ollama = {
         enable = true;
-        package = pkgs.unstable.ollama;
-        host = "[0.0.0.0]";
+        host = "[::]";
         acceleration = "cuda";
         openFirewall = true;
       };
+    };
+    nixpkgs.config = {
+        cudaSupport = config.services.xserver.videoDrivers == ["nvidia"];
     };
   };
 }

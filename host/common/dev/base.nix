@@ -11,7 +11,6 @@
     gcc
 
     nodejs
-    nodePackages_latest.prettier
 
     spread
 
