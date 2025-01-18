@@ -35,6 +35,7 @@ in
       "invoke.${domain}".extraConfig = mkVHost "http://10.20.50.30:9090";
       "chat.${domain}".extraConfig = mkVHost "http://10.20.50.30:3000";
       "n8n.${domain}".extraConfig = mkVHost "http://10.20.50.30:5678";
+      "ollama.${domain}".extraConfig = mkVHost "http://10.20.50.30:11434";
       "br.${domain}".extraConfig = mkVHost "http://10.20.50.30:3001";
       "sync-hs-1.${domain}".extraConfig = mkVHost "http://localhost:8384";
     };

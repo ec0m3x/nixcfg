@@ -7,14 +7,12 @@ in
 {
   imports = [
     (./. + "/${desktop}")
-    ../dev
-    #./alacritty.nix
-    #./gtk.nix
-    #./qt.nix
+    ./vscode.nix
+    ./alacritty.nix
   ];
   
   programs.firefox.enable = true;
-  
+
   catppuccin.enable = false;
 
   fonts.fontconfig.enable = true;

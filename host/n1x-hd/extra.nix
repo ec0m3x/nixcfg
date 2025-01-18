@@ -10,16 +10,13 @@
     ../common/containers/baserow
     ../common/containers/n8n
     ../common/containers/ollama
-
   ];
 
   # Extra services
   extraServices.docker.enable = true;
-  extraServices.ollama-gpu.enable = false;
   extraServices.cachix.enable = true;
   extraServices.gaming.enable = true;
   extraServices.nfs-mount.enable = true;
-  extraServices.sunshine.enable = true;
   extraServices.vfio.enable = true;
 
   # WakeOnLan
@@ -28,7 +25,12 @@
     policy = [ "magic" ];
   };
 
-  # Powermanagement
-  powerManagement.powertop.enable = true;
-
+  networking = {
+    firewall = {
+      allowedTCPPorts = [
+      ];
+      allowedUDPPorts = [
+      ];
+    };
+  };
 }

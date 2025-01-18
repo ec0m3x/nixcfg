@@ -62,7 +62,7 @@
       # nix build .#homeConfigurations."ecomex@n1x-ais".activationPackage
       homeConfigurations = {
         # Desktop machines
-        "${username}@n1x-hd" = libx.mkHome { hostname = "n1x-hd"; desktop = "kde";};
+        "${username}@n1x-hd" = libx.mkHome { hostname = "n1x-hd"; desktop = "plasma";};
         # Headless machines
         "${username}@n1x-hs" = libx.mkHome { hostname = "n1x-hs"; };
         "${username}@n1x-cs" = libx.mkHome { hostname = "n1x-cs"; };
@@ -73,7 +73,7 @@
         # Desktop machines
         n1x-hd = libx.mkHost {
           hostname = "n1x-hd";
-          desktop = "kde";
+          desktop = "plasma";
         };
         # Headless machines
         n1x-hs = libx.mkHost {
@@ -87,7 +87,7 @@
       #nix run nix-darwin -- switch --flake ~/nixos-config
       #nix build .#darwinConfigurations.{hostname}.config.system.build.toplevel
       darwinConfigurations = {
-        # Client machines
+        # Laptop
         macbook = libx.mkDarwin {
           hostname = "macbook";
         };

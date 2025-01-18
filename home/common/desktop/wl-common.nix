@@ -1,10 +1,13 @@
 { pkgs, ... }:
 {
   imports = [
+    ./gtk.nix
+    ./qt.nix
     ./waybar
     ./mako.nix
     ./rofi.nix
     ./swappy.nix
+    ./xdg.nix
   ];
 
   services = {
@@ -37,6 +40,9 @@
   };
 
   home.packages = with pkgs; [
+    mpv
+    loupe
+    file-roller
     grim
     libva-utils
     playerctl

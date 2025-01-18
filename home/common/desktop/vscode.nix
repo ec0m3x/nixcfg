@@ -22,6 +22,4 @@
     ];
     mutableExtensionsDir = true;
   };
-
-  home.packages = with pkgs; [ sublime-merge ];
 }

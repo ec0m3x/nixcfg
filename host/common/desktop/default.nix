@@ -21,7 +21,6 @@ in
     "loglevel=3"
     "rd.udev.log_priority=3"
     "vt.global_cursor_default=0"
-    "video=HDMI-A-2:3440x1440@100"
   ];
 
   hardware.graphics.enable = true;

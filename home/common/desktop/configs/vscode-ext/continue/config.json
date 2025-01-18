@@ -1,34 +1,22 @@
 {
   "models": [
     {
-      "title": "Llama3.1 Chat",
-      "model": "llama3.1:latest",
+      "title": "Qwen 2.5 Coder",
       "provider": "ollama",
-      "apiBase": "http://10.20.50.30:11434"
-    },
-    {
-      "title": "Llama3.2 Chat",
-      "model": "llama3.2:latest",
-      "provider": "ollama",
-      "apiBase": "http://10.20.50.30:11434"
-    },
-    {
-      "title": "Qwen 2.5 32b",
-      "model": "qwen2.5:32b",
-      "provider": "ollama",
-      "apiBase": "http://10.20.50.30:11434"
+      "model": "qwen2.5-coder:latest",
+      "apiBase": "https://ollama.hl.sks-concept.de"
     }
   ],
   "tabAutocompleteModel": {
     "title": "Qwen 2.5 Coder",
     "provider": "ollama",
-    "model": "qwen2.5-coder:1.5b",
-    "apiBase": "http://10.20.50.30:11434"
+    "model": "qwen2.5-coder:latest",
+    "apiBase": "https://ollama.hl.sks-concept.de"
   },
   "embeddingsProvider": {
     "provider": "ollama",
     "model": "nomic-embed-text",
-    "apiBase": "http://10.20.50.30:11434"
+    "apiBase": "https://ollama.hl.sks-concept.de"
   },
   "customCommands": [
     {

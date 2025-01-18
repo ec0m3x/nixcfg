@@ -13,6 +13,7 @@ in
         "networkmanager"
         "users"
         "video"
+        "input"
         "wheel"
       ]
       ++ ifExists [
