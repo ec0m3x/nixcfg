@@ -17,7 +17,7 @@ rec {
     size = "standard";
   };
 
-  wallpaper = if hostname == "n1x-ais" then ./wallpapers/mountains.png else ./wallpapers/jokulsarlon.png;
+  wallpaper = if hostname == "n1x-hd" then ./wallpapers/mountains.png else ./wallpapers/jokulsarlon.png;
 
   gtkTheme = {
     name = "catppuccin-macchiato-blue-standard";
@@ -60,7 +60,7 @@ rec {
     };
     monospace = {
       name = "MesloLGSDZ Nerd Font Mono";
-      package = pkgs.nerdfonts.override { fonts = [ "Meslo" ]; };
+      package = if hostname == "macbook" then pkgs.nerd-fonts.meslo-lg else pkgs.nerdfonts.override { fonts = [ "Meslo" ]; };
     };
     emoji = {
       name = "Joypixels";

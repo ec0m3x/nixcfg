@@ -7,7 +7,7 @@
     master.url = "github:nixos/nixpkgs/master";
 
     nix-darwin.url = "github:LnL7/nix-darwin";
-    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    nix-darwin.inputs.nixpkgs.follows = "unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     agenix.url = "github:ryantm/agenix";
