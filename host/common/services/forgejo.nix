@@ -15,6 +15,24 @@ in
     owner = "forgejo";
   };
 
+  # Traefik configuration specific to forgejo
+  services.traefik.dynamicConfigOptions.http = {
+    services.forgejo.loadBalancer.servers = [
+      {
+        url = "http://localhost:3000/";
+      }
+    ];
+
+    routers.forgejo = {
+      rule = "Host(`code.sks-concept.de`)";
+      tls = {
+        certResolver = "cloudflare";
+      };
+      service = "forgejo";
+      entrypoints = "websecure";
+    };
+  };
+
   services.forgejo = {
     enable = true;
     database.type = "postgres";

@@ -19,6 +19,7 @@
           http.tls.certResolver = "cloudflare";
         };
       };
+      api = {};
       #api.dashboard = true;
       # Access the Traefik dashboard on <Traefik IP>:8080 of your server
       #api.insecure = false;
@@ -39,24 +40,38 @@
     };
     dynamicConfigOptions = {
       http = {
+        middlewares = {
+          auth = {
+            basicAuth = {
+              users = ["ecomex:$apr1$b63e/oQ/$KmQimlF2DipIJpGx1vSES0"];
+            };
+          };
+        };
         routers = {
+          api = {
+            rule = "Host(`traefik.sks-concept.de`)";
+            service = "api@internal";
+            middlewares = ["auth"];
+            entrypoints = ["websecure"];
+            tls = {
+              certResolver = "cloudflare";
+            };
+          };
           portainer = {
             entryPoints = [ "websecure" ];
             rule = "Host(`docker.sks-concept.de`)";
             service = "portainer";
-            tls = false;
+            tls = {
+              certResolver = "cloudflare";
+            };
           };
           actual-budget = {
             entryPoints = [ "websecure" ];
             rule = "Host(`budget.sks-concept.de`)";
             service = "actual-budget";
-            tls = false;
-          };
-          forgejo = {
-            entryPoints = [ "websecure" ];
-            rule = "Host(`git.sks-concept.de`)";
-            service = "forgejo";
-            tls = false;
+            tls = {
+              certResolver = "cloudflare";
+            };
           };
         };
         services = {
@@ -64,7 +79,7 @@
             loadBalancer = {
               servers = [
                 {
-                  url = "https://localhost:9443";
+                  url = "http://localhost:9000/";
                 }
               ];
             };
@@ -73,16 +88,7 @@
             loadBalancer = {
               servers = [
                 {
-                  url = "http://localhost:5006";
-                }
-              ];
-            };
-          };
-          forgejo = {
-            loadBalancer = {
-              servers = [
-                {
-                  url = "http://localhost:3000";
+                  url = "http://localhost:5006/";
                 }
               ];
             };
@@ -100,6 +106,5 @@
   networking.firewall.allowedTCPPorts = [
     80
     443
-    8080
   ];
 }
