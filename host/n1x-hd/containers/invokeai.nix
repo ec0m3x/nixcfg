@@ -7,6 +7,7 @@
       '';
   };
 
+  # Container configuration for InvokeAI
   virtualisation.oci-containers = {
     containers."invokeai" = {    
       image = "ghcr.io/invoke-ai/invokeai";
@@ -18,7 +19,8 @@
         "/home/ecomex/containers/invokeai/data:/invokeai"
       ];
       extraOptions = [
-        "--device=nvidia.com/gpu=all"
+        "--device=nvidia.com/gpu=all" 
+        "--network=dockernet"
       ];
     };
   };

@@ -22,6 +22,7 @@
       ./common/users/${username}
     ]
     ++ lib.optional (builtins.pathExists (./. + "/${hostname}/extra.nix")) ./${hostname}/extra.nix
+    ++ lib.optional (builtins.pathExists (./. + "/${hostname}/services.nix")) ./${hostname}/services.nix
     # Include desktop config if a desktop is defined
     ++ lib.optional (builtins.isString desktop) ./common/desktop;
 

@@ -17,9 +17,10 @@ _: {
       "/var/lib/containers"
       "/var/lib/systemd"
       "/home/*/containers"
-      "/home/*/.steam"
+      "/home/*/.steam*"
       "/home/*/nfs"
-      "/home/*/"
+      "/home/*/.cache"
+      "/home/*/downloads"
       # temporary files created by cargo and `go build`
       "**/target"
       "/home/*/go/bin"

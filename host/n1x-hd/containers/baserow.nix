@@ -1,12 +1,5 @@
-{ self, config, pkgs, lib, username, ... }:
+{ lib, username, ... }:{
 
-{
-  # Network
-  system.activationScripts.createDockerNetworkBaserow = lib.mkAfter ''
-    if ! /run/current-system/sw/bin/docker network inspect baserow >/dev/null 2>&1; then
-      /run/current-system/sw/bin/docker network create baserow
-    fi
-  '';
   # Create directories and run scripts for the containers
   system.activationScripts = {
       script.text = ''
@@ -14,9 +7,9 @@
       '';
   };
 
-  # Containers
+  # Container configuration for Baserow
   virtualisation.oci-containers.containers."baserow" = {
-    image = "baserow/baserow:1.29.3";
+    image = "docker.io/baserow/baserow:latest";
 
     environment = {
       "BASEROW_PUBLIC_URL" = "https://br.hl.sks-concept.de";
@@ -27,6 +20,8 @@
     ports = [
       "3001:80"
     ];
-    extraOptions = ["--network=baserow"];
+    extraOptions = [
+      "--network=dockernet"
+    ];
   };
 }

@@ -7,7 +7,7 @@
 with lib; let
   cfg = config.extraServices.cockpit;
 in {
-  options.extraServices.cockpit.enable = mkEnableOption "enable cockpitt";
+  options.extraServices.cockpit.enable = mkEnableOption "enable cockpit";
 
   config = mkIf cfg.enable {
     services = {

@@ -17,7 +17,7 @@
       ];
       extraOptions = [
         "--device=nvidia.com/gpu=all"
-        "--network=local-ai"
+        "--network=dockernet"
       ];
     };
   };
