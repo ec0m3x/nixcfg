@@ -66,6 +66,7 @@
         # Headless machines
         "${username}@n1x-hs" = libx.mkHome { hostname = "n1x-hs"; };
         "${username}@n1x-cs" = libx.mkHome { hostname = "n1x-cs"; };
+        "${username}@n1x-cs-2" = libx.mkHome { hostname = "n1x-cs-2"; };
       };
 
       # nix build .#nixosConfigurations.n1x-ais.config.system.build.toplevel
@@ -81,6 +82,9 @@
         };
         n1x-cs = libx.mkHost {
           hostname = "n1x-cs";
+        };
+        n1x-cs-2 = libx.mkHost {
+          hostname = "n1x-cs-2";
         };
       };
       
