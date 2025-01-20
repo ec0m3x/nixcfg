@@ -1,8 +1,8 @@
 _: {
   # In order to mount the backup to restore files, perform the following:
   #
-  #    mkdir backup
-  #    sudo borg-job-borgbase mount ike67cye@ike67cye.repo.borgbase.com:repo ./backup
+  #    mkdir borgbackup
+  #    sudo borg-job-borgbase mount e41pvpss@e41pvpss.repo.borgbase.com:repo ./borgbackup
   #
   # Then copy out the files you need using normal Linux commands. Once complete, unmount
   # with:

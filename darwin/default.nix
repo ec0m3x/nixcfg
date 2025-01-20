@@ -94,7 +94,10 @@
 
   services = {
     nix-daemon.enable = true;
-    tailscale.enable = true;
+    tailscale = {
+      enable = true;
+      overrideLocalDns = true;
+    };
   };
 
   system = {
