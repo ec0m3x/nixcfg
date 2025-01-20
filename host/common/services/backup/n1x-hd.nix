@@ -16,10 +16,12 @@ _: {
     exclude = [
       "/var/lib/containers"
       "/var/lib/systemd"
-      "/home/*/containers"
+      "/var/lib/docker"
+      "/home/*/containers/ollama"
+      "/home/*/containers/invokeai"
       "/home/*/.steam*"
       "/home/*/nfs"
-      "/home/*/.cache"
+      "/home/*/.local"
       "/home/*/downloads"
       # temporary files created by cargo and `go build`
       "**/target"
@@ -27,7 +29,7 @@ _: {
       "/home/*/go/pkg"
       "/home/*/.cache"
     ];
-    repo = "g1vvqwn4@g1vvqwn4.repo.borgbase.com:repo";
+    repo = "e41pvpss@e41pvpss.repo.borgbase.com:repo";
     startAt = "*-*-* 12:00:00";
   };
 }

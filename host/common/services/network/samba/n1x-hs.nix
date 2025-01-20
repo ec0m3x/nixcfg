@@ -42,6 +42,16 @@
         "fruit:time machine" = "yes";
         "vfs objects" = "catia fruit streams_xattr";
       };
+      "music" = {
+        "path" = "/data/media/music";
+        "browseable" = "yes";
+        "read only" = "yes";
+        "guest ok" = "yes";
+        "create mask" = "0644";
+        "directory mask" = "0755";
+        "force user" = "ecomex";
+        "force group" = "users";
+      };
     };
   };
 
